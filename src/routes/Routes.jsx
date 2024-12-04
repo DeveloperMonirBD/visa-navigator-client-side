@@ -13,6 +13,7 @@ import AllVisas from '../pages/AllVisas';
 import AddVisa from '../pages/AddVisa';
 import MyAddedVisas from '../pages/MyAddedVisas';
 import MyVisaApplication from '../pages/MyVisaApplication';
+import VisaDetails from '../pages/VisaDetails';
 
 const routes = createBrowserRouter([
     {
@@ -36,6 +37,15 @@ const routes = createBrowserRouter([
                     </PrivetRoute>
                 )
             },
+            {
+                path: '/visaDetails',
+                element: (
+                    <PrivetRoute>
+                        <VisaDetails />
+                    </PrivetRoute>
+                )
+            },
+            
             {
                 path: '/myAddedVisas',
                 element: (
