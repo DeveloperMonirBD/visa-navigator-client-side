@@ -18,7 +18,7 @@ experience with a dynamic interface, robust authentication, and responsive desig
 
 ## Technologies Used
 
-###Frontend:
+### Frontend:
 
     -   React.js
     -   React Router
@@ -28,7 +28,7 @@ experience with a dynamic interface, robust authentication, and responsive desig
     -   Lottie (for animations)
     -   CSS/SASS or Tailwind CSS (for styling)
 
-###Backend:
+### Backend:
 
     -   Node.js
     -   Express.js
