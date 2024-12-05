@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
                 )
             },
             {
-                path: '/visaDetails',
+                path: '/visaDetails/:id',
                 element: (
                     <PrivetRoute>
                         <VisaDetails />

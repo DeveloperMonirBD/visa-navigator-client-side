@@ -2,11 +2,14 @@
 /* eslint-disable react/prop-types */
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
+
+// Custom Hook 
+export const useAuth = () => { return useContext(AuthContext); };
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);

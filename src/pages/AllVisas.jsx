@@ -20,7 +20,7 @@ const AllVisas = () => {
                         <p>
                             <strong>Fee:</strong> {visa.fee} USD
                         </p>
-                        <Link to={`/visaDetails`} className="bg-blue-500 text-white px-4 py-2 rounded mt-4 inline-block">
+                        <Link to={`/visaDetails/${visa._id}`} className="bg-blue-500 text-white px-4 py-2 rounded mt-4 inline-block">
                             See Details
                         </Link>
                     </div>
