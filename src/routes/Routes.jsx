@@ -27,7 +27,8 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/allVisas',
-                element: <AllVisas />
+                element: <AllVisas />,
+                loader: () => fetch('http://localhost:5000/api/visas')
             },
             {
                 path: '/addVisa',
@@ -45,7 +46,7 @@ const routes = createBrowserRouter([
                     </PrivetRoute>
                 )
             },
-            
+
             {
                 path: '/myAddedVisas',
                 element: (
