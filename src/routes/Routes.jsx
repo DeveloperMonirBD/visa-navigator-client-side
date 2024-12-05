@@ -14,6 +14,7 @@ import AddVisa from '../pages/AddVisa';
 import MyAddedVisas from '../pages/MyAddedVisas';
 import MyVisaApplication from '../pages/MyVisaApplication';
 import VisaDetails from '../pages/VisaDetails';
+import LatestVisas from '../components/LatestVisas';
 
 const routes = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ const routes = createBrowserRouter([
                         <VisaDetails />
                     </PrivetRoute>
                 )
+            },
+            {
+                path: '/latestVisas',
+                element: <LatestVisas />
             },
 
             {
