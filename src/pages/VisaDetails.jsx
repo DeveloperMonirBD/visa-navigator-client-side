@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../provider/AuthProvider';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../variants';
-import ApplyModal from './ApplyModal';
+import ApplyModal from '../components/ApplyModal';
 
 const VisaDetails = () => {
     const { id } = useParams();
