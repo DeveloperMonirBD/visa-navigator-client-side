@@ -3,7 +3,7 @@ import LatestVisas from '../components/LatestVisas';
 
 const Home = () => {
     return (
-        <div>
+        <div className='space-y-20'>
             <Banner />
             <LatestVisas />
         </div>

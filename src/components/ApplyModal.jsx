@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+/* eslint-disable react/prop-types */
+import { useContext, useState } from 'react';
 import 'tailwindcss/tailwind.css';
 import { AuthContext } from '../provider/AuthProvider';
 
@@ -8,8 +9,15 @@ const ApplyModal = ({ visa, setShowModal }) => {
         email: user.email,
         firstName: user.displayName ? user.displayName.split(' ')[0] : '',
         lastName: user.displayName ? user.displayName.split(' ')[1] || '' : '',
-        appliedDate: new Date().toISOString().slice(0, 10), // Current date in YYYY-MM-DD format
-        fee: visa.fee
+        appliedDate: new Date().toISOString().slice(0, 10),
+        fee: visa.fee,
+        countryName: visa.countryName,
+        visaType: visa.visaType,
+        processingTime: visa.processingTime,
+        validity: visa.validity,
+        applicationMethod: visa.applicationMethod,
+        description: visa.description,
+        countryImage: visa.countryImage
     });
 
     const handleChange = e => {
@@ -29,6 +37,7 @@ const ApplyModal = ({ visa, setShowModal }) => {
                 },
                 body: JSON.stringify(formData)
             });
+
             const data = await response.json();
             if (response.ok) {
                 alert('Application submitted successfully!');
