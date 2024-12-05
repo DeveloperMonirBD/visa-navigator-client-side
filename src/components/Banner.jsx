@@ -2,64 +2,46 @@
 import { motion } from 'framer-motion';
 //variants
 import { fadeIn } from '../variants';
-
 import { Carousel } from 'flowbite-react';
-import banner3 from '../assets/frame.png';
-import banner1 from '../assets/hero-graphics.svg';
-import banner2 from '../assets/hero1.png';
-import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
-        <motion.div
-            variants={fadeIn('up', 0.2)}
-            initial="hidden"
-            whileInView={'show'}
-            viewport={{ once: false, amount: 0.7 }}
-            className="min-h-[700px] sm:h-64 xl:h-80 2xl:h-96 px-4 lg:px-14  h-screen bg-[radial-gradient(50%_50%_at_50%_50%,#17956D_0%,#0F684C_100%)] pt-0 pb-10 md:pt-20 md:pb-24 -mt-[52px] md:-mt-[40px] py-16 rounded-md">
-            <Carousel className="w-full mx-auto">
-                {/* banner1  */}
-                <div className=" container md:my-8 py-12 flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:px-20 lg:px-12">
-                    <div className="animate-updown">
-                        <img src={banner1} alt="" />
-                    </div>
-                    {/* hero text  */}
-                    <div className="md:w-2/3">
-                        <h1 className="text-3xl lg:text-5xl font-semibold mb-4 text-white md:w-3/4 leading-snug">
-                            Build Vocabulary with <br /> <span className="text-gray-900">Comprehensive Practice Tools</span>
-                        </h1>
-                        <p className="text-neutralSilver text-base mb-8 ">Enhance your vocabulary with interactive exercises and real-world usage.</p>
-                        <Link to="/auth/register" className="button-secondary ">Register</Link>
+        <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="min-h-[700px] sm:h-64 xl:h-80 2xl:h-96 h-screen rounded-md">
+            <Carousel className="w-full h-full">
+                <div className="relative w-full h-full bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co.com/ZGQLjrR/visa-requirements.jpg')" }}>
+                    <div className="flex  items-center justify-center h-full bg-black bg-opacity-60 px-14">
+                        <div className="lg:max-w-5xl space-y-4 lg:space-y-6">
+                            <h1 className="text-white text-3xl md:text-5xl lg:text-6xl  lg:text-start font-bold lg:leading-snug">
+                                Discover Your Next <br /> Destination
+                            </h1>
+                            <p className="text-white lg:text-start  mt-4 lg:w-2/3 text-base">
+                                Explore the world with our comprehensive visa services. Whether you're planning a trip for business, study, or leisure, we help make your travel dreams a reality.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                {/* banner2  */}
-                <div className="container md:my-8 py-12 flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:px-20 lg:px-12">
-                    <div className="animate-updown">
-                        <img src={banner2} alt="" />
-                    </div>
-                    {/* hero text  */}
-                    <div className="md:w-2/3">
-                        <h1 className="text-3xl lg:text-5xl font-semibold mb-4 text-white md:w-3/4 leading-snug">
-                            Unlock Your Language Potential <br /> <span className="text-gray-900">with Interactive Lessons</span>
-                        </h1>
-                        <p className="text-neutralSilver text-base mb-8 ">Explore our engaging lessons designed to cater to learners of all levels.</p>
-                        <Link to="/auth/register" className="button-secondary ">Register</Link>
+                <div className="relative w-full h-full bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co.com/vQ1jHfk/f26bca-a68cfe86e4524811b2ad8dd64c4b8237mv2.jpg')" }}>
+                    <div className="flex  items-center justify-center h-full bg-black bg-opacity-60 px-14">
+                        <div className="lg:max-w-5xl space-y-4 lg:space-y-6">
+                            <h1 className="text-white text-3xl md:text-5xl lg:text-6xl  lg:text-start font-bold lg:leading-snug">Get Ready to Explore</h1>
+                            <p className="text-white lg:text-start  mt-4 lg:w-2/3 text-base">
+                                Unlock new opportunities and experiences with our reliable visa services. Let us handle the paperwork while you prepare for your adventure.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                {/* banner3  */}
-                <div className="container md:my-8 py-12 flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:px-20 lg:px-12">
-                    <div className="animate-updown">
-                        <img src={banner3} alt="" />
-                    </div>
-                    {/* hero text  */}
-                    <div className="md:w-2/3">
-                        <h1 className="text-3xl lg:text-5xl font-semibold mb-4 text-white md:w-3/4 leading-snug">
-                            Customize Your Learning Path <br /> <span className="text-gray-900">to Achieve Your Goals</span>
-                        </h1>
-                        <p className="text-neutralSilver text-base mb-8 ">Create personalized learning paths to align with your language learning objectives.</p>
-                        <Link to="/auth/register" className="button-secondary ">Register</Link>
+                <div className="relative w-full h-full bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co.com/FsXt271/NEW-WEBSITE-BLOG-PICS-1706858929.jpg')" }}>
+                    <div className="flex  items-center justify-center h-full bg-black bg-opacity-80 px-14">
+                        <div className="lg:max-w-5xl space-y-4 lg:space-y-6">
+                            <h1 className="text-white text-3xl md:text-5xl lg:text-6xl  lg:text-start font-bold lg:leading-snug">
+                                Your Gateway to <br /> the World
+                            </h1>
+                            <p className="text-white lg:text-start  mt-4 lg:w-2/3 text-base">
+                                Experience seamless and efficient visa processing with us. Whether it's for business or pleasure, we're here to make your journey smooth and enjoyable.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </Carousel>

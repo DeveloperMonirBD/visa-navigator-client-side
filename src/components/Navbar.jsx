@@ -55,11 +55,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/" className="text-2xl font-extrabold text-brandPrimary flex items-center gap-2">
-                    <img className="hidden md:flex w-52 rounded-xl" src={logo} alt="" />
+                    <img className="hidden md:flex w-28 rounded-xl" src={logo}  alt="logo" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-gray-600 gap-2 font-semibold">{links}</ul>
+                <ul className="menu menu-horizontal px-1 text-brandSecondary gap-2 font-bold">{links}</ul>
             </div>
             <div className="navbar-end md:flex gap-3">
                 <div className="">
@@ -83,10 +83,10 @@ const Navbar = () => {
                         </button>
                     ) : (
                         <div className="flex items-center gap-2">
-                            <Link to="/auth/login" className="btn button-primary font-bold">
+                            <Link to="/auth/login" className="btn bg-brandSecondary hover:bg-brandPrimary hover:text-white font-bold">
                                 Login
                             </Link>
-                            <Link to="/auth/register" className="btn button-primary font-bold">
+                            <Link to="/auth/register" className="btn button-primary hover:bg-brandSecondary hover:text-gray-800 font-bold">
                                 Register
                             </Link>
                         </div>
