@@ -15,6 +15,7 @@ import MyAddedVisas from '../pages/MyAddedVisas';
 import MyVisaApplication from '../pages/MyVisaApplication';
 import VisaDetails from '../pages/VisaDetails';
 import LatestVisas from '../components/LatestVisas';
+import UpdateVisa from '../pages/UpdateVisa';
 
 const routes = createBrowserRouter([
     {
@@ -65,6 +66,14 @@ const routes = createBrowserRouter([
                 element: (
                     <PrivetRoute>
                         <MyVisaApplication />
+                    </PrivetRoute>
+                )
+            },
+            {
+                path: '/updateVisa/:id',
+                element: (
+                    <PrivetRoute>
+                        <UpdateVisa />
                     </PrivetRoute>
                 )
             },

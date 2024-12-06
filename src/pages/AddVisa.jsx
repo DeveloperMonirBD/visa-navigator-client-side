@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
 
 const AddVisa = () => {
+    const { user } = useContext(AuthContext);
     const [visa, setVisa] = useState({
+        email: user.email,
         countryImage: '',
         countryName: '',
         visaType: '',
@@ -139,7 +142,7 @@ const AddVisa = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="bg-brandPrimary text-white px-4 py-2 rounded mt-4">
+                <button type="submit" className="bg-brandPrimary text-brandLight px-4 py-2 rounded mt-4">
                     Add Visa
                 </button>
             </form>

@@ -23,10 +23,10 @@
 }
 
 .button-primary{
-    @apply px-7 py-2 bg-brandPrimary text-white rounded-lg hover:bg-neutralDGrey transition-all duration-300
+    @apply px-7 py-2 bg-brandPrimary text-brandLight rounded-lg hover:bg-neutralDGrey transition-all duration-300
 }
 .button-secondary {
-    @apply px-7 py-2 bg-brandPrimary text-white rounded hover:bg-neutralDGrey transition-all duration-300 hover:-translate-y-4
+    @apply px-7 py-2 bg-brandPrimary text-brandLight rounded hover:bg-neutralDGrey transition-all duration-300 hover:-translate-y-4
 }
 
 .player {

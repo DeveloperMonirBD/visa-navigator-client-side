@@ -175,7 +175,7 @@ const Register = () => {
                     </div>
 
                     <div className="form-control mt-6">
-                        <button className="btn text-white text-base btn-neutral">Register</button>
+                        <button className="btn text-brandLight text-base btn-neutral">Register</button>
                     </div>
 
                     {errorMessage && <p className="text-red-600 text-center mt-3">{errorMessage}</p>}
@@ -183,7 +183,7 @@ const Register = () => {
                     {success && <p className="text-green-500 text-center mt-3">Sign up is Successful.</p>}
 
                     <div className="form-control mt-6 flex justify-center gap-3">
-                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary text-white hover:text-gray-900">
+                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary text-brandLight hover:text-gray-900">
                             <img className="w-6 mr-1 shadow-2xl" src={google} alt="" /> Google Sign Up
                         </button>
                     </div>

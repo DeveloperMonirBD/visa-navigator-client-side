@@ -46,7 +46,7 @@ const VisaDetails = () => {
             {visa ? (
                 <>
                     <h2 className="text-2xl font-bold mb-4">{visa.countryName} Visa Details</h2>
-                    <div className="bg-white shadow-md rounded-lg p-4">
+                    <div className="bg-brandLight shadow-md rounded-lg p-4">
                         <img src={visa.countryImage} alt={visa.countryName} className="w-full h-32 object-cover rounded-md mb-4" />
                         <p>
                             <strong>Visa Type:</strong> {visa.visaType}
@@ -66,7 +66,7 @@ const VisaDetails = () => {
                         <p>
                             <strong>Description:</strong> {visa.description}
                         </p>
-                        <button className="bg-blue-500 text-white px-4 py-2 rounded mt-4" onClick={() => setShowModal(true)}>
+                        <button className="bg-blue-500 text-brandLight px-4 py-2 rounded mt-4" onClick={() => setShowModal(true)}>
                             Apply for the Visa
                         </button>
                     </div>

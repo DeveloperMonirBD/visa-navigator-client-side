@@ -79,7 +79,7 @@ const ProfileUpdate = () => {
                     {successMessage && <p className="text-green-600 text-center mt-3">{successMessage}</p>}
                     {errorMessage && <p className="text-red-600 text-center mt-3">{errorMessage}</p>}
                     <div className="form-control mt-6">
-                        <button className="btn text-white text-base bg-brandPrimary hover:text-gray-900">Update Profile</button>
+                        <button className="btn text-brandLight text-base bg-brandPrimary hover:text-gray-900">Update Profile</button>
                     </div>
                 </form>
             </div>

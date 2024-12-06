@@ -95,11 +95,11 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-4">
-                        <button className="btn text-white text-base btn-neutral">Login</button>
+                        <button className="btn text-brandLight text-base btn-neutral">Login</button>
                     </div>
 
                     <div className="form-control mt-6 flex justify-center gap-3">
-                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary text-white hover:text-gray-800 ">
+                        <button type="button" onClick={handleGoogleLogin} className="btn text-base bg-brandPrimary text-brandLight hover:text-gray-800 ">
                             <img className="w-6 mr-1 shadow-2xl" src={google} alt="" /> Google Login
                         </button>
                     </div>

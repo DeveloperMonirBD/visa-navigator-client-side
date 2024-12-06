@@ -38,7 +38,7 @@ const MyProfile = () => {
                         <img src={userIcon} alt="" />
                     )}
                 </div>
-                <Link to="/auth/profileUpdate" className="btn mt-4 bg-brandPrimary text-white hover:bg-gray-900 transition">
+                <Link to="/auth/profileUpdate" className="btn mt-4 bg-brandPrimary text-brandLight hover:bg-gray-900 transition">
                     Update Profile
                 </Link>
             </motion.div>

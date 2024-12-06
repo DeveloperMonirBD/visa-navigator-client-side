@@ -4,7 +4,7 @@ import logo from '../assets/visaNavigator logo.png';
 
 const Footer = () => {
     return (
-        <div id="footer" className=" bg-gray-900 text-white px-3 py-20 mt-20">
+        <div id="footer" className=" bg-gray-900 text-brandLight px-3 py-20 mt-20">
             <footer className="footer p-10 container mx-auto lg:flex lg:justify-between items-start gap-10">
                 <nav>
                     <div>
@@ -57,7 +57,7 @@ const Footer = () => {
                 </nav>
 
                 <form className="text-gray-900">
-                    <h6 className="text-2xl text-white font-bold">Drop a Message</h6>
+                    <h6 className="text-2xl text-brandLight font-bold">Drop a Message</h6>
                     <fieldset className="form-control w-80">
                         <label className="label"></label>
                         <div className=" space-y-4">
@@ -65,7 +65,7 @@ const Footer = () => {
                                 <input type="text" placeholder="username@site.com" className="input input-bordered join-item w-full" />
                             </div>
 
-                            <button type="submit" className="btn text-lg bg-brandPrimary text-white hover:text-gray-900 join-item w-full">
+                            <button type="submit" className="btn text-lg bg-brandPrimary text-brandLight hover:text-gray-900 join-item w-full">
                                 Subscribe
                             </button>
                         </div>
