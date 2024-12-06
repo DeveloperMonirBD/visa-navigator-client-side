@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { useLoaderData, useNavigate} from 'react-router-dom';
 
 const UpdateVisa = () => {
-    const { id } = useParams();
     const navigate = useNavigate();
+    const LoadedVisa = useLoaderData();
+    
     const [formData, setFormData] = useState({
         countryImage: '',
         countryName: '',
@@ -17,19 +18,6 @@ const UpdateVisa = () => {
         applicationMethod: ''
     });
 
-    useEffect(() => {
-        const fetchVisa = async () => {
-            try {
-                const response = await fetch(`http://localhost:5000/api/visas/${id}`);
-                const data = await response.json();
-                setFormData(data);
-            } catch (error) {
-                console.error('Error fetching visa:', error);
-            }
-        };
-
-        fetchVisa();
-    }, [id]);
 
     const handleChange = e => {
         setFormData({
@@ -55,18 +43,19 @@ const UpdateVisa = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5000/api/visas/${formData._id}`, {
+            const response = await fetch(`http://localhost:5000/visas/${LoadedVisa._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(formData)
             });
-            const data = await response.json();
+            
             if (response.ok) {
-                navigate('/myAddedVisas');
                 alert('Visa updated successfully!');
+                navigate('/myAddedVisas');
             } else {
+                const data = await response.json();
                 alert(data.message);
             }
         } catch (error) {

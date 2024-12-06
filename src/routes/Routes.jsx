@@ -1,21 +1,20 @@
-
 import { createBrowserRouter } from 'react-router-dom';
-import MainLayout from '../layouts/MainLayout';
-import Home from '../pages/Home';
-import ErrorElement from '../pages/ErrorElement';
-import AuthLayout from '../layouts/AuthLayout';
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import PrivetRoute from './PrivetRoute';
-import MyProfile from '../pages/MyProfile';
-import ProfileUpdate from '../pages/ProfileUpdate';
-import AllVisas from '../pages/AllVisas';
-import AddVisa from '../pages/AddVisa';
-import MyAddedVisas from '../pages/MyAddedVisas';
-import MyVisaApplication from '../pages/MyVisaApplication';
-import VisaDetails from '../pages/VisaDetails';
 import LatestVisas from '../components/LatestVisas';
+import AuthLayout from '../layouts/AuthLayout';
+import MainLayout from '../layouts/MainLayout';
+import AddVisa from '../pages/AddVisa';
+import AllVisas from '../pages/AllVisas';
+import ErrorElement from '../pages/ErrorElement';
+import Home from '../pages/Home';
+import Login from '../pages/Login';
+import MyAddedVisas from '../pages/MyAddedVisas';
+import MyProfile from '../pages/MyProfile';
+import MyVisaApplication from '../pages/MyVisaApplication';
+import ProfileUpdate from '../pages/ProfileUpdate';
+import Register from '../pages/Register';
 import UpdateVisa from '../pages/UpdateVisa';
+import VisaDetails from '../pages/VisaDetails';
+import PrivetRoute from './PrivetRoute';
 
 const routes = createBrowserRouter([
     {
@@ -71,11 +70,8 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/updateVisa/:id',
-                element: (
-                    <PrivetRoute>
-                        <UpdateVisa />
-                    </PrivetRoute>
-                )
+                element: <UpdateVisa />,
+                loader: ({params}) => fetch(`http://localhost:5000/visas/${params.id}`)
             },
 
             {
@@ -109,4 +105,3 @@ const routes = createBrowserRouter([
 ]);
 
 export default routes;
-
