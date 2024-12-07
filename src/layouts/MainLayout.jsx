@@ -14,7 +14,7 @@ const MainLayout = () => {
 
             <main className="bg-neutralSilver">
                 {/* Dynamic Section  */}
-                <div className="min-h-[calc(100vh-232px)] px-3">
+                <div className="min-h-[calc(100vh-232px)] px-3 pb-20">
                     <Outlet />
                 </div>
             </main>

@@ -73,9 +73,9 @@ const AddVisa = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-4">Add Visa</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="container mx-auto px-4 py-20">
+            <h2 className="text-brandPrimary text-4xl font-bold mb-6">Add Visa</h2>
+            <form onSubmit={handleSubmit} className="space-y-4 text-base">
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Country Image</label>
                     <input type="text" name="countryImage" value={visa.countryImage} onChange={handleChange} placeholder="Country Image URL" className="mt-1 p-2 border rounded w-full" required />
@@ -130,7 +130,7 @@ const AddVisa = () => {
                     <label className="block text-sm font-medium text-gray-700">Validity</label>
                     <input type="text" name="validity" value={visa.validity} onChange={handleChange} placeholder="Validity" className="mt-1 p-2 border rounded w-full" required />
                 </div>
-                <div>
+                <div className="pb-2">
                     <label className="block text-sm font-medium text-gray-700">Application Method</label>
                     <input
                         type="text"
@@ -142,7 +142,7 @@ const AddVisa = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="bg-brandPrimary text-brandLight px-4 py-2 rounded mt-4">
+                <button type="submit" className="bg-brandPrimary text-brandLight px-6 py-3 rounded mt-4">
                     Add Visa
                 </button>
             </form>

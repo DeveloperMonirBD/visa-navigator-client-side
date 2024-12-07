@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ApplyModal from '../components/ApplyModal';
 import { useAuth } from '../provider/AuthProvider';
@@ -13,7 +13,7 @@ const VisaDetails = () => {
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        console.log('Visa ID:', id); // ID চেক করার জন্য কনসোল লগ যোগ করুন
+        console.log('Visa ID:', id);
 
         if (!user) {
             navigate('/auth/login');
@@ -32,7 +32,7 @@ const VisaDetails = () => {
                 }
             };
             if (id) {
-                fetchVisaDetails(); // ID সঠিক হলে ফাংশন কল করুন
+                fetchVisaDetails();
             }
         }
     }, [id, user, navigate]);
@@ -42,12 +42,12 @@ const VisaDetails = () => {
     }
 
     return (
-        <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="container mx-auto px-4 py-8">
+        <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="max-w-4xl mx-auto px-4 py-20">
             {visa ? (
                 <>
-                    <h2 className="text-2xl font-bold mb-4">{visa.countryName} Visa Details</h2>
-                    <div className="bg-brandLight shadow-md rounded-lg p-4">
-                        <img src={visa.countryImage} alt={visa.countryName} className="w-full h-32 object-cover rounded-md mb-4" />
+                    <h2 className="text- 3xl text-brandPrimary md:text-4xl font-bold mb-6">{visa.countryName} Visa Details</h2>
+                    <div className="bg-brandLight shadow-lg rounded-2xl p-4 md:p-12 text-base md:text-lg md:space-y-2">
+                        <img src={visa.countryImage} alt={visa.countryName} className="w-full h-56 md:h-72 object-cover rounded-lg mb-6" />
                         <p>
                             <strong>Visa Type:</strong> {visa.visaType}
                         </p>
@@ -55,7 +55,7 @@ const VisaDetails = () => {
                             <strong>Processing Time:</strong> {visa.processingTime}
                         </p>
                         <p>
-                            <strong>Fee:</strong> {visa.fee} USD
+                            <strong>Fee:</strong> ${visa.fee} USD
                         </p>
                         <p>
                             <strong>Validity:</strong> {visa.validity}
@@ -63,10 +63,10 @@ const VisaDetails = () => {
                         <p>
                             <strong>Application Method:</strong> {visa.applicationMethod}
                         </p>
-                        <p>
+                        <p className="pb-4">
                             <strong>Description:</strong> {visa.description}
                         </p>
-                        <button className="bg-blue-500 text-brandLight px-4 py-2 rounded mt-4" onClick={() => setShowModal(true)}>
+                        <button className="bg-brandPrimary text-brandLight px-4 py-4 rounded mt-6" onClick={() => setShowModal(true)}>
                             Apply for the Visa
                         </button>
                     </div>

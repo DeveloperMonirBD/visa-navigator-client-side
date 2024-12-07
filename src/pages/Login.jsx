@@ -1,4 +1,3 @@
-
 import { GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from 'firebase/auth';
 import { useContext, useRef, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -65,7 +64,7 @@ const Login = () => {
     };
 
     return (
-        <div className="md:min-h-[calc(100vh-200px)] flex justify-center items-center">
+        <div className="md:min-h-[calc(100vh-200px)] flex justify-center items-center pt-20">
             <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl md:p-8 pt-6">
                 <h2 className="text-4xl font-semibold text-center text-brandPrimary pt-6">Login your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
@@ -119,4 +118,3 @@ const Login = () => {
 };
 
 export default Login;
-

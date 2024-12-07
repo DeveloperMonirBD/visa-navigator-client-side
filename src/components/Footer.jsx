@@ -4,7 +4,7 @@ import logo from '../assets/visaNavigator logo.png';
 
 const Footer = () => {
     return (
-        <div id="footer" className=" bg-gray-900 text-brandLight px-3 py-20 mt-20">
+        <div id="footer" className=" bg-gray-900 text-brandLight px-3 py-20">
             <footer className="footer p-10 container mx-auto lg:flex lg:justify-between items-start gap-10">
                 <nav>
                     <div>

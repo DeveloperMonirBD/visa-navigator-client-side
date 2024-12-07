@@ -1,3 +1,8 @@
+//motion
+import { motion } from 'framer-motion';
+//variants
+import { fadeIn } from '../variants';
+
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 
@@ -13,7 +18,7 @@ const MyVisaApplication = () => {
                 const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/api/applications?email=${user.email}`);
                 const data = await response.json();
                 setApplications(data);
-                setFilteredApplications(data); // Initialize filtered applications
+                setFilteredApplications(data);
             } catch (error) {
                 console.error('Error fetching applications:', error);
             }
@@ -59,8 +64,8 @@ const MyVisaApplication = () => {
     };
 
     return (
-        <div className="container mx-auto py-8 px-4">
-            <h2 className="text-2xl font-bold mb-6">My Visa Applications</h2>
+        <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="container mx-auto py-20 px-4">
+            <h2 className="text-brandPrimary text-4xl font-bold mb-8">My Visa Applications</h2>
 
             <div className="mb-6 flex items-center">
                 <input
@@ -69,19 +74,19 @@ const MyVisaApplication = () => {
                     onChange={handleSearchChange}
                     onKeyUp={handleSearch} // Perform search on key up
                     placeholder="Search by Country Name"
-                    className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    className="mt-1 block w-full pl-3 pr-10 py-4 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                 />
-                <button onClick={handleSearch} className="bg-blue-500 text-white px-4 py-2 rounded ml-2">
+                <button onClick={handleSearch} className="bg-blue-500 text-white px-10 py-4 rounded-md ml-2">
                     Search
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 md:gap-8">
                 {filteredApplications.map(application => (
-                    <div key={application._id} className="bg-white shadow-md rounded-lg p-4">
-                        <img src={application.countryImage} alt={application.countryName} className="w-full h-32 object-cover rounded-md mb-4" />
-                        <h2 className="text-xl font-semibold mb-2">{application.countryName}</h2>
-                        <p>
+                    <div key={application._id} className="bg-white shadow-lg rounded-2xl p-6 lg:p-8 space-y-1">
+                        <img src={application.countryImage} alt={application.countryName} className="w-full h-48 lg:h-56 object-cover rounded-lg mb-4" />
+                        <h2 className="text-2xl font-semibold mb-2">{application.countryName}</h2>
+                        <p className="pt-2">
                             <strong>Visa Type:</strong> {application.visaType}
                         </p>
                         <p>
@@ -102,16 +107,16 @@ const MyVisaApplication = () => {
                         <p>
                             <strong>Applicant's Name:</strong> {`${application.firstName} ${application.lastName}`}
                         </p>
-                        <p>
+                        <p className="pb-3">
                             <strong>Applicant's Email:</strong> {application.email}
                         </p>
-                        <button className="bg-red-500 text-white px-4 py-2 rounded mt-4" onClick={() => handleCancel(application._id)}>
+                        <button className="bg-red-500 text-white px-6 py-3 rounded mt-4" onClick={() => handleCancel(application._id)}>
                             Cancel
                         </button>
                     </div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     );
 };
 

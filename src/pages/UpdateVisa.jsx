@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UpdateVisa = () => {
@@ -17,6 +17,19 @@ const UpdateVisa = () => {
         validity: '',
         applicationMethod: ''
     });
+
+    useEffect(() => {
+        const fetchVisa = async () => {
+            try {
+                const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/visas/${LoadedVisa._id}`);
+                const data = await response.json();
+                setFormData({ ...data, requiredDocuments: data.requiredDocuments || [] });
+            } catch (error) {
+                console.error('Error fetching visa:', error);
+            }
+        };
+        fetchVisa();
+    }, [LoadedVisa._id]);
 
     const handleChange = e => {
         setFormData({
@@ -64,14 +77,14 @@ const UpdateVisa = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-6 text-center">Update Visa Information</h2>
-            <form onSubmit={handleSubmit} className="space-y-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="container mx-auto px-4 py-20">
+            <h2 className="text-brandPrimary text-4xl font-bold mb-10 text-center">Update Visa Information</h2>
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-4">
                 <div className="md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Country Image</label>
                     <input type="text" name="countryImage" value={formData.countryImage} onChange={handleChange} placeholder="Country Image URL" className="mt-1 p-2 border rounded w-full" required />
                 </div>
-                <div className="md:col-span-1">
+                <div className="md:col-span-1 mt-0">
                     <label className="block text-sm font-medium text-gray-700">Country Name</label>
                     <input type="text" name="countryName" value={formData.countryName} onChange={handleChange} placeholder="Country Name" className="mt-1 p-2 border rounded w-full" required />
                 </div>

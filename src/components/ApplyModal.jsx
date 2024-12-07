@@ -52,9 +52,9 @@ const ApplyModal = ({ visa, setShowModal }) => {
 
     return (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
-            <div className="bg-brandLight p-4 rounded-md w-1/2">
-                <h2 className="text-xl font-bold mb-4">Apply for {visa.countryName} Visa</h2>
-                <form onSubmit={handleSubmit}>
+            <div className="bg-brandLight p-6 md:p-8 rounded-xl w-1/2">
+                <h2 className="text-brandPrimary text-2xl font-bold mb-6">Apply for {visa.countryName} Visa</h2>
+                <form onSubmit={handleSubmit} className='space-y-4'>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Email</label>
                         <input type="email" name="email" value={formData.email} onChange={handleChange} className="mt-1 p-2 border rounded w-full" required />
