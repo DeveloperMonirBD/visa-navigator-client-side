@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/visaNavigator logo.png';
 import userIcon from '../assets/user.png';
+import logo from '../assets/visaNavigator logo.png';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
@@ -10,9 +10,7 @@ const Navbar = () => {
     const links = (
         <>
             <li className="hover:text-brandPrimary">
-                <NavLink to="/" >
-                    Home
-                </NavLink>
+                <NavLink to="/">Home</NavLink>
             </li>
             <li className="hover:text-brandPrimary">
                 <NavLink to="/allVisas">All Visas</NavLink>
@@ -56,8 +54,8 @@ const Navbar = () => {
                         )}
                     </ul>
                 </div>
-                <Link to="/" className="text-2xl font-extrabold text-brandPrimary flex items-center gap-2">
-                    <img className="hidden md:flex w-28 rounded-xl" src={logo} alt="logo" />
+                <Link to="/" className="text-2xl font-extrabold text-brandPrimary flex items-center gap-2 transform transition-all hover:scale-105 cursor-pointer duration-300">
+                    <img className="hidden md:flex w-24 rounded-xl" src={logo} alt="logo" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">

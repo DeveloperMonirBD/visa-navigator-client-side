@@ -5,8 +5,8 @@ import { fadeIn } from '../variants';
 
 import { useContext, useEffect, useState } from 'react';
 
- import Swal from 'sweetalert2';
- import 'sweetalert2/dist/sweetalert2.css';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.css';
 
 import { AuthContext } from '../provider/AuthProvider';
 
@@ -30,7 +30,6 @@ const MyVisaApplication = () => {
 
         fetchApplications();
     }, [user.email]);
-
 
     const handleCancel = async id => {
         const swalWithTailwindButtons = Swal.mixin({
@@ -90,7 +89,6 @@ const MyVisaApplication = () => {
             });
     };
 
-
     const handleSearchChange = e => {
         const searchTerm = e.target.value;
         setSearchTerm(searchTerm);
@@ -129,7 +127,7 @@ const MyVisaApplication = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 md:gap-8">
                 {filteredApplications.map(application => (
-                    <div key={application._id} className="bg-white shadow-lg rounded-2xl p-6 lg:p-8 space-y-1">
+                    <div key={application._id} className="bg-white rounded-2xl p-6 lg:p-8 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300">
                         <img src={application.countryImage} alt={application.countryName} className="w-full h-48 lg:h-56 object-cover rounded-lg mb-4" />
                         <h2 className="text-2xl font-semibold mb-2">{application.countryName}</h2>
                         <p className="pt-2">

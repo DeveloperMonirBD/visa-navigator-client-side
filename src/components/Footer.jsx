@@ -9,7 +9,7 @@ const Footer = () => {
                 <nav>
                     <div>
                         <Link className=" text-brandPrimary text-4xl font-bold">
-                            <img className=" w-28 rounded-xl shadow-2xl" src={logo} alt="" />
+                            <img className=" w-24 rounded-xl transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300" src={logo} alt="" />
                         </Link>
                     </div>
                     <div className="text-base space-y-2 mt-2">

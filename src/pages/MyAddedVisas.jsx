@@ -83,7 +83,7 @@ const MyAddedVisas = () => {
                 <h2 className="text-brandPrimary text-4xl font-bold mb-8">My Added Visas</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 md:gap-8">
                     {myAddedVisas.map(visa => (
-                        <div key={visa._id} className="bg-white shadow-lg rounded-2xl p-6 lg:p-8 space-y-1">
+                        <div key={visa._id} className="bg-white rounded-2xl p-6 lg:p-8 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300">
                             <img src={visa.countryImage} alt={visa.countryName} className="w-full h-48 lg:h-56 object-cover rounded-lg mb-4" />
                             <h2 className="text-2xl font-semibold mb-2">{visa.countryName}</h2>
                             <p className="pt-2">

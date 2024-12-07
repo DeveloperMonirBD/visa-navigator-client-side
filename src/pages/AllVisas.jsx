@@ -45,7 +45,9 @@ const AllVisas = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {filteredVisas.map(visa => (
-                        <div key={visa._id} className="bg-brandLight shadow-lg rounded-2xl p-6 md:p-6 space-y-1">
+                        <div
+                            key={visa._id}
+                            className="bg-brandLight rounded-2xl p-6 md:p-6 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300">
                             <img src={visa.countryImage} alt={visa.countryName} className="w-full h-48 object-cover rounded-lg mb-4" />
                             <h2 className="text-2xl font-semibold">{visa.countryName}</h2>
                             <p className="pt-2">
