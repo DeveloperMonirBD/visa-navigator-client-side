@@ -55,7 +55,7 @@ const AllVisas = () => {
                                 <strong>Processing Time:</strong> {visa.processingTime}
                             </p>
                             <p className="pb-2">
-                                <strong>Fee:</strong> {visa.fee} USD
+                                <strong>Fee:</strong> ${visa.fee} USD
                             </p>
                             <Link to={`/visaDetails/${visa._id}`} className="bg-brandPrimary text-brandLight px-4 py-3 rounded mt-4 inline-block">
                                 See Details

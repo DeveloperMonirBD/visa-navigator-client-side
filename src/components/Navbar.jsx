@@ -10,7 +10,9 @@ const Navbar = () => {
     const links = (
         <>
             <li className="hover:text-brandPrimary">
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" >
+                    Home
+                </NavLink>
             </li>
             <li className="hover:text-brandPrimary">
                 <NavLink to="/allVisas">All Visas</NavLink>

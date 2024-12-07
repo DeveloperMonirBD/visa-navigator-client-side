@@ -4,6 +4,10 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '../variants';
 
 import { useContext, useEffect, useState } from 'react';
+
+ import Swal from 'sweetalert2';
+ import 'sweetalert2/dist/sweetalert2.css';
+
 import { AuthContext } from '../provider/AuthProvider';
 
 const MyVisaApplication = () => {
@@ -27,23 +31,65 @@ const MyVisaApplication = () => {
         fetchApplications();
     }, [user.email]);
 
+
     const handleCancel = async id => {
-        try {
-            const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/api/applications/${id}`, {
-                method: 'DELETE'
+        const swalWithTailwindButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded',
+                cancelButton: 'bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded'
+            },
+            buttonsStyling: true
+        });
+
+        swalWithTailwindButtons
+            .fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            })
+            .then(async result => {
+                if (result.isConfirmed) {
+                    try {
+                        const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/api/applications/${id}`, {
+                            method: 'DELETE'
+                        });
+                        if (response.ok) {
+                            setApplications(applications.filter(application => application._id !== id));
+                            setFilteredApplications(filteredApplications.filter(application => application._id !== id));
+                            swalWithTailwindButtons.fire({
+                                title: 'Deleted!',
+                                text: 'Your application has been cancelled.',
+                                icon: 'success'
+                            });
+                        } else {
+                            swalWithTailwindButtons.fire({
+                                title: 'Failed',
+                                text: 'Failed to cancel the application.',
+                                icon: 'error'
+                            });
+                        }
+                    } catch (error) {
+                        console.error('Error cancelling application:', error);
+                        swalWithTailwindButtons.fire({
+                            title: 'Error',
+                            text: 'An error occurred while cancelling the application.',
+                            icon: 'error'
+                        });
+                    }
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    swalWithTailwindButtons.fire({
+                        title: 'Cancelled',
+                        text: 'Your application is safe :)',
+                        icon: 'error'
+                    });
+                }
             });
-            if (response.ok) {
-                setApplications(applications.filter(application => application._id !== id));
-                setFilteredApplications(filteredApplications.filter(application => application._id !== id)); // Update filtered applications
-                alert('Application cancelled successfully!');
-            } else {
-                alert('Failed to cancel the application.');
-            }
-        } catch (error) {
-            console.error('Error cancelling application:', error);
-            alert('An error occurred while cancelling the application.');
-        }
     };
+
 
     const handleSearchChange = e => {
         const searchTerm = e.target.value;
@@ -93,7 +139,7 @@ const MyVisaApplication = () => {
                             <strong>Processing Time:</strong> {application.processingTime}
                         </p>
                         <p>
-                            <strong>Fee:</strong> {application.fee} USD
+                            <strong>Fee:</strong> ${application.fee} USD
                         </p>
                         <p>
                             <strong>Validity:</strong> {application.validity}

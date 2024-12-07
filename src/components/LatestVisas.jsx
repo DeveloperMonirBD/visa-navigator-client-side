@@ -37,7 +37,7 @@ const LatestVisas = () => {
                             <strong>Processing Time:</strong> {visa.processingTime}
                         </p>
                         <p>
-                            <strong>Fee:</strong> {visa.fee} USD
+                            <strong>Fee:</strong> ${visa.fee} USD
                         </p>
                         <p>
                             <strong>Validity:</strong> {visa.validity}
