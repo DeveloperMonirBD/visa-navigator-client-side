@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
-import { toast, Toaster } from 'react-hot-toast';
 
 const AddVisa = () => {
     const { user } = useContext(AuthContext);
@@ -39,6 +40,7 @@ const AddVisa = () => {
         }
     };
 
+
     const handleSubmit = async e => {
         e.preventDefault();
         try {
@@ -51,25 +53,49 @@ const AddVisa = () => {
             });
             const data = await response.json();
             if (response.ok) {
-                toast.success('Visa added successfully!');
-                // Redirect or update state to show new visa in All Visas page
-                setVisa({
-                    countryImage: '',
-                    countryName: '',
-                    visaType: '',
-                    processingTime: '',
-                    requiredDocuments: [],
-                    description: '',
-                    ageRestriction: '',
-                    fee: '',
-                    validity: '',
-                    applicationMethod: ''
+                // Show success alert
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Visa added successfully!',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    // Reset form state
+                    setVisa({
+                        email: user.email,
+                        countryImage: '',
+                        countryName: '',
+                        visaType: '',
+                        processingTime: '',
+                        requiredDocuments: [],
+                        description: '',
+                        ageRestriction: '',
+                        fee: '',
+                        validity: '',
+                        applicationMethod: ''
+                    });
+                    // Uncheck all checkboxes
+                    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
                 });
             } else {
-                toast.error(data.message);
+                // Show error alert
+                Swal.fire({
+                    title: 'Error!',
+                    text: data.message,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             }
         } catch (error) {
             console.error(error.message);
+            Swal.fire({
+                title: 'Error!',
+                text: 'An error occurred while adding the visa.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         }
     };
 
@@ -147,7 +173,6 @@ const AddVisa = () => {
                     Add Visa
                 </button>
             </form>
-            <Toaster position="top-right" reverseOrder={false} />
         </div>
     );
 };
