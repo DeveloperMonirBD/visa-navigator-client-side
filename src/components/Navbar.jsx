@@ -47,7 +47,7 @@ const Navbar = () => {
                                 <Link to="/auth/login" className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold">
                                     Login
                                 </Link>
-                                <Link to="/auth/register" className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary  font-bold lg:ml-2">
+                                <Link to="/auth/register" className="btn bg-brandSecondary text-brandLight hover:text-brandSecondary  font-bold lg:ml-2">
                                     Register
                                 </Link>
                             </>

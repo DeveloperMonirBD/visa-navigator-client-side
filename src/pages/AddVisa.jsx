@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import { toast, Toaster } from 'react-hot-toast';
 
 const AddVisa = () => {
     const { user } = useContext(AuthContext);
@@ -50,7 +51,7 @@ const AddVisa = () => {
             });
             const data = await response.json();
             if (response.ok) {
-                alert('Visa added successfully!');
+                toast.success('Visa added successfully!');
                 // Redirect or update state to show new visa in All Visas page
                 setVisa({
                     countryImage: '',
@@ -65,7 +66,7 @@ const AddVisa = () => {
                     applicationMethod: ''
                 });
             } else {
-                alert(data.message);
+                toast.error(data.message);
             }
         } catch (error) {
             console.error(error.message);
@@ -73,7 +74,7 @@ const AddVisa = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-20">
+        <div className="container mx-auto px-4 py-16">
             <h2 className="text-brandPrimary text-4xl font-bold mb-6">Add Visa</h2>
             <form onSubmit={handleSubmit} className="space-y-4 text-base">
                 <div>
@@ -146,6 +147,7 @@ const AddVisa = () => {
                     Add Visa
                 </button>
             </form>
+            <Toaster position="top-right" reverseOrder={false} />
         </div>
     );
 };

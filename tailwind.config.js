@@ -14,7 +14,7 @@ export default {
                 neutralSilver: '#F5F7Fa',
                 neutralDGrey: '#4D4D4D',
                 brandPrimary: '#3F83F8',
-                brandSecondary: '#038C61',
+                brandSecondary: '#7066e0',
                 brandLight: '#ffffff',
                 neutralGrey: '#717171'
             }

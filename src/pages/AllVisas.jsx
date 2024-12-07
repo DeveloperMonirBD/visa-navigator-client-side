@@ -22,11 +22,11 @@ const AllVisas = () => {
     };
 
     return (
-        <div className="container mx-auto py-20 px-4">
+        <div className="container mx-auto pt-10 pb-20 px-4">
             <motion.div variants={fadeIn('up', 0.3)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.4 }}>
                 <h1 className="text-brandPrimary text-4xl font-bold mb-6">All Visas</h1>
 
-                <div className="mb-6">
+                <div className="mb-8">
                     <label htmlFor="visaType" className="block text-base font-medium text-gray-700">
                         Filter by Visa Type:
                     </label>

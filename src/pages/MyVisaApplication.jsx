@@ -64,10 +64,10 @@ const MyVisaApplication = () => {
     };
 
     return (
-        <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="container mx-auto py-20 px-4">
+        <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="container mx-auto pt-16 pb-20 px-4">
             <h2 className="text-brandPrimary text-4xl font-bold mb-8">My Visa Applications</h2>
 
-            <div className="mb-6 flex items-center">
+            <div className="mb-8 flex items-center">
                 <input
                     type="text"
                     value={searchTerm}

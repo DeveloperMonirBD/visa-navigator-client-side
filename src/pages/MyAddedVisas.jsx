@@ -5,6 +5,7 @@ import { fadeIn } from '../variants';
 
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
 const MyAddedVisas = () => {
     const { user } = useContext(AuthContext);
@@ -42,28 +43,42 @@ const MyAddedVisas = () => {
         };
         fetchData();
     }, [user?.email]);
+
     const handleDelete = async id => {
-        try {
-            const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/api/visas/${id}`, { method: 'DELETE' });
-            if (response.ok) {
-                setMyAddedVisas(myAddedVisas.filter(visa => visa._id !== id));
-                alert('Visa deleted successfully!');
-            } else {
-                alert('Failed to delete the visa.');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(async result => {
+            if (result.isConfirmed) {
+                try {
+                    const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/api/visas/${id}`, { method: 'DELETE' });
+                    if (response.ok) {
+                        setMyAddedVisas(myAddedVisas.filter(visa => visa._id !== id));
+                        Swal.fire({ title: 'Deleted!', text: 'Your visa has been deleted.', icon: 'success' });
+                    } else {
+                        Swal.fire({ title: 'Failed!', text: 'Failed to delete the visa.', icon: 'error' });
+                    }
+                } catch (error) {
+                    console.error('Error deleting visa:', error);
+                    Swal.fire({ title: 'Error!', text: 'An error occurred while deleting the visa.', icon: 'error' });
+                }
             }
-        } catch (error) {
-            console.error('Error deleting visa:', error);
-            alert('An error occurred while deleting the visa.');
-        }
+        });
     };
+
     if (loading) {
         return <div>Loading...</div>;
     }
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div className="flex justify-center pt-20 text-rose-600 font-bold text-base">{error}</div>;
     }
     return (
-        <div className="container mx-auto py-20 px-4">
+        <div className="container mx-auto py-16 px-4">
             <motion.div variants={fadeIn('up', 0.4)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.6 }}>
                 <h2 className="text-brandPrimary text-4xl font-bold mb-8">My Added Visas</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 md:gap-8">

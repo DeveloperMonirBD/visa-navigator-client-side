@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateVisa = () => {
     const navigate = useNavigate();
@@ -52,28 +53,56 @@ const UpdateVisa = () => {
         }
     };
 
+    // const handleSubmit = async e => {
+    //     e.preventDefault();
+    //     try {
+    //         const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/visas/${LoadedVisa._id}`, {
+    //             method: 'PUT',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(formData)
+    //         });
+
+    //         if (response.ok) {
+    //             alert('Visa updated successfully!');
+    //             navigate('/myAddedVisas');
+    //         } else {
+    //             const data = await response.json();
+    //             alert(data.message);
+    //         }
+    //     } catch (error) {
+    //         console.error('Error updating visa:', error);
+    //         alert('An error occurred while updating the visa.');
+    //     }
+    // };
+
     const handleSubmit = async e => {
         e.preventDefault();
-        try {
-            const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/visas/${LoadedVisa._id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-
-            if (response.ok) {
-                alert('Visa updated successfully!');
-                navigate('/myAddedVisas');
-            } else {
-                const data = await response.json();
-                alert(data.message);
+        Swal.fire({ title: 'Do you want to save the changes?', showDenyButton: true, showCancelButton: true, confirmButtonText: 'Save', denyButtonText: `Don't save` }).then(async result => {
+            if (result.isConfirmed) {
+                try {
+                    const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/visas/${LoadedVisa._id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                    if (response.ok) {
+                        Swal.fire('Saved!', 'Visa updated successfully!', 'success').then(() => {
+                            navigate('/myAddedVisas');
+                        });
+                    } else {
+                        const data = await response.json();
+                        Swal.fire('Failed', data.message, 'error');
+                    }
+                } catch (error) {
+                    console.error('Error updating visa:', error);
+                    Swal.fire('Error', 'An error occurred while updating the visa.', 'error');
+                }
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info');
             }
-        } catch (error) {
-            console.error('Error updating visa:', error);
-            alert('An error occurred while updating the visa.');
-        }
+        });
     };
 
     return (
