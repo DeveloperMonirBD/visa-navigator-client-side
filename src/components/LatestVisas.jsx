@@ -7,7 +7,7 @@ const LatestVisas = () => {
     useEffect(() => {
         const fetchLatestVisas = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/latestVisas');
+                const response = await fetch('https://b10-a10-server-side-ten.vercel.app/api/latestVisas');
                 const data = await response.json();
                 setLatestVisas(data);
             } catch (error) {

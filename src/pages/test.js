@@ -18,7 +18,7 @@ const MyAddedVisas = () => {
                     return;
                 }
 
-                const response = await fetch('http://localhost:5000/myAddedVisas', {
+                const response = await fetch('https://b10-a10-server-side-ten.vercel.app/myAddedVisas', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ const MyAddedVisas = () => {
 
     const handleDelete = async id => {
         try {
-            const response = await fetch(`http://localhost:5000/api/visas/${id}`, {
+            const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/api/visas/${id}`, {
                 method: 'DELETE'
             });
             if (response.ok) {

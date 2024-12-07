@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '../provider/AuthProvider';
 import { motion } from 'framer-motion';
-import { fadeIn } from '../variants';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import ApplyModal from '../components/ApplyModal';
+import { useAuth } from '../provider/AuthProvider';
+import { fadeIn } from '../variants';
 
 const VisaDetails = () => {
     const { id } = useParams();
@@ -20,7 +20,7 @@ const VisaDetails = () => {
         } else {
             const fetchVisaDetails = async () => {
                 try {
-                    const response = await fetch(`http://localhost:5000/api/visas/${id}`);
+                    const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/api/visas/${id}`);
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }

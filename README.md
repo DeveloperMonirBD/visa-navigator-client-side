@@ -24,7 +24,7 @@ experience with a dynamic interface, robust authentication, and responsive desig
     -   React Router
     -   Firebase Authentication (for login & registration)
     -   Axios (for API calls)
-    -   React Toastify (for notifications)
+    -   React Toastify/sweetalert2 (for notifications)
     -   Lottie (for animations)
     -   CSS/SASS or Tailwind CSS (for styling)
 
@@ -78,12 +78,14 @@ experience with a dynamic interface, robust authentication, and responsive desig
 
 `bash npm start `
 
-4. Open your browser and navigate to
-
-`..................` to view the application.
+4. Open your browser and navigate to `https://visa-navigator-bb0c9.web.app` to view the application.
 
 ## What to Submit
 
--   Private Github Repo Link : `https://github.com/programming-hero-web-course2/b10-a10-client-side-DeveloperMonirBD`
+-   Assignment Category: `Sunflower`
 
--   Live link to the deployed project :
+-   Your client-side code GitHub repository link : `https://github.com/programming-hero-web-course2/b10-a10-client-side-DeveloperMonirBD`
+
+-   Your server-side code GitHub repository link: `https://github.com/programming-hero-web-course2/b10-a10-server-side-DeveloperMonirBD`
+
+-   Live link to the deployed project : `https://visa-navigator-bb0c9.web.app`

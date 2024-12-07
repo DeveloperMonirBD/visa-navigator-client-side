@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useLoaderData, useNavigate} from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UpdateVisa = () => {
     const navigate = useNavigate();
     const LoadedVisa = useLoaderData();
-    
+
     const [formData, setFormData] = useState({
         countryImage: '',
         countryName: '',
@@ -17,7 +17,6 @@ const UpdateVisa = () => {
         validity: '',
         applicationMethod: ''
     });
-
 
     const handleChange = e => {
         setFormData({
@@ -43,14 +42,14 @@ const UpdateVisa = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5000/visas/${LoadedVisa._id}`, {
+            const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/visas/${LoadedVisa._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(formData)
             });
-            
+
             if (response.ok) {
                 alert('Visa updated successfully!');
                 navigate('/myAddedVisas');

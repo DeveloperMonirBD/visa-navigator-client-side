@@ -15,7 +15,10 @@ const MyAddedVisas = () => {
                     setLoading(false);
                     return;
                 }
-                const response = await fetch('http://localhost:5000/myAddedVisas', { method: 'GET', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${user?.email}` } });
+                const response = await fetch('https://b10-a10-server-side-ten.vercel.app/myAddedVisas', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${user?.email}` }
+                });
                 if (!response.ok) {
                     const errorData = await response.json();
                     console.error('Error fetching data:', errorData.message);
@@ -36,7 +39,7 @@ const MyAddedVisas = () => {
     }, [user?.email]);
     const handleDelete = async id => {
         try {
-            const response = await fetch(`http://localhost:5000/api/visas/${id}`, { method: 'DELETE' });
+            const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/api/visas/${id}`, { method: 'DELETE' });
             if (response.ok) {
                 setMyAddedVisas(myAddedVisas.filter(visa => visa._id !== id));
                 alert('Visa deleted successfully!');

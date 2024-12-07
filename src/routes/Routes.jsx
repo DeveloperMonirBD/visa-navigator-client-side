@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
             {
                 path: '/allVisas',
                 element: <AllVisas />,
-                loader: () => fetch('http://localhost:5000/api/visas')
+                loader: () => fetch('https://b10-a10-server-side-ten.vercel.app/api/visas')
             },
             {
                 path: '/addVisa',
@@ -71,7 +71,7 @@ const routes = createBrowserRouter([
             {
                 path: '/updateVisa/:id',
                 element: <UpdateVisa />,
-                loader: ({params}) => fetch(`http://localhost:5000/visas/${params.id}`)
+                loader: ({ params }) => fetch(`https://b10-a10-server-side-ten.vercel.app/visas/${params.id}`)
             },
 
             {
