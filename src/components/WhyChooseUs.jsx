@@ -1,4 +1,3 @@
-
 //motion
 import { motion } from 'framer-motion';
 //variants
@@ -6,17 +5,17 @@ import { fadeIn } from '../variants';
 
 const WhyChooseUs = () => {
     return (
-        <section className="py-16 bg-gradient-to-r from-blue-100 via-white to-indigo-50">
+        <section className="py-20 bg-base-100 shadow-sm dark:shadow-xl dark:bg-gray-800  dark:text-[#dddddd]">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }}>
                     <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">Why Choose Us</h2>
-                    <p className="mt-2 text-4xl leading-10 font-extrabold text-brandPrimary sm:text-4xl">Our Commitment to Excellence</p>
+                    <p className="mt-3 text-4xl leading-10 font-extrabold text-brandPrimary sm:text-4xl">Our Commitment to Excellence</p>
                     <p className="mt-4 max-w-md text-base text-gray-500 mx-auto">We provide the best services to ensure your success. Here's why you should choose us.</p>
                 </motion.div>
                 <motion.div variants={fadeIn('up', 0.3)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.5 }} className="mt-16">
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-                        <div className="pt-6">
-                            <div className="flow-root bg-indigo-100 rounded-lg px-6 pb-8 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 h-[220px]">
+                        <div className="pt-6 ">
+                            <div className="flow-root bg-indigo-100 rounded-lg px-6 pb-8 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 h-[220px] dark:bg-neutral">
                                 <div className="-mt-6">
                                     <div>
                                         <span className="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
@@ -25,13 +24,13 @@ const WhyChooseUs = () => {
                                             </svg>
                                         </span>
                                     </div>
-                                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">Fast and hassle-free</h3>
-                                    <p className="mt-5 text-base text-gray-500">Enjoy a far simpler process than dealing with foreign governments.</p>
+                                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight dark:text-[#dddddd]">Fast and hassle-free</h3>
+                                    <p className="mt-5 text-base text-gray-500 dark:text-[#dddddd]">Enjoy a far simpler process than dealing with foreign governments.</p>
                                 </div>
                             </div>
                         </div>
                         <div className="pt-6">
-                            <div className="flow-root bg-indigo-100  rounded-lg px-6 pb-8 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 h-[220px]">
+                            <div className="flow-root bg-indigo-100  rounded-lg px-6 pb-8 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 h-[220px] dark:bg-neutral">
                                 <div className="-mt-6">
                                     <div>
                                         <span className="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
@@ -40,13 +39,13 @@ const WhyChooseUs = () => {
                                             </svg>
                                         </span>
                                     </div>
-                                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">Secure and Safe</h3>
-                                    <p className="mt-5 text-base text-gray-500">All your information is always protected with best-in-class security.</p>
+                                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight dark:text-[#dddddd]">Secure and Safe</h3>
+                                    <p className="mt-5 text-base text-gray-500 dark:text-[#dddddd]">All your information is always protected with best-in-class security.</p>
                                 </div>
                             </div>
                         </div>
                         <div className="pt-6">
-                            <div className="flow-root bg-indigo-100 rounded-lg px-6 pb-8 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 h-[220px]">
+                            <div className="flow-root bg-indigo-100 rounded-lg px-6 pb-8 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 h-[220px] dark:bg-neutral">
                                 <div className="-mt-6">
                                     <div>
                                         <span className="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
@@ -60,13 +59,13 @@ const WhyChooseUs = () => {
                                             </svg>
                                         </span>
                                     </div>
-                                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">Get Approved</h3>
-                                    <p className="mt-5 text-base text-gray-500">We have a 98% visa approval rate. Our team is committed to your success!</p>
+                                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight dark:text-[#dddddd]">Get Approved</h3>
+                                    <p className="mt-5 text-base text-gray-500 dark:text-[#dddddd]">We have a 98% visa approval rate. Our team is committed to your success!</p>
                                 </div>
                             </div>
                         </div>
                         <div className="pt-6">
-                            <div className="flow-root bg-indigo-100 rounded-lg px-6 pb-8 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 h-[220px]">
+                            <div className="flow-root bg-indigo-100 rounded-lg px-6 pb-8 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 h-[220px] dark:bg-neutral">
                                 <div className="-mt-6">
                                     <div>
                                         <span className="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-xl">
@@ -80,8 +79,8 @@ const WhyChooseUs = () => {
                                             </svg>
                                         </span>
                                     </div>
-                                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">Awesome support</h3>
-                                    <p className="mt-5 text-base text-gray-500">Don't worry! Our customer support is ready to help you 24/7.</p>
+                                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight dark:text-[#dddddd]">Awesome support</h3>
+                                    <p className="mt-5 text-base text-gray-500 dark:text-[#dddddd]">Don't worry! Our customer support is ready to help you 24/7.</p>
                                 </div>
                             </div>
                         </div>

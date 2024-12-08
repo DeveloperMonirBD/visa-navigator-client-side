@@ -36,32 +36,32 @@ const CustomerReviews = () => {
     ];
 
     return (
-        <section className="py-16 bg-gradient-to-r from-indigo-50 via-white to-blue-100">
+        <section className="py-20 bg-base-100 shadow-sm dark:shadow-xl dark:bg-gray-800  dark:text-[#dddddd]">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
                 <motion.div variants={fadeIn('up', 0.3)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.4 }} className="text-center">
                     <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">Customer Reviews</h2>
-                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-brandPrimary sm:text-4xl">What Our Customers Are Saying</p>
-                    <p className="mt-4 max-w-lg text- text-gray-500 lg:mx-auto">Hear from our satisfied customers who have used our visa services.</p>
+                    <p className="mt-3 text-3xl leading-8 font-extrabold tracking-tight text-brandPrimary sm:text-4xl text-center">What Our Customers Are Saying</p>
+                    <p className="mt-4 max-w-lg text- text-gray-500 mx-auto">Hear from our satisfied customers who have used our visa services.</p>
                 </motion.div>
                 <motion.div
                     variants={fadeIn('up', 0.4)}
                     initial="hidden"
                     whileInView={'show'}
                     viewport={{ once: false, amount: 0.5 }}
-                    className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                    className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {reviews.map((review, index) => (
-                        <div key={index} className="bg-white p-6 rounded-lg transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300">
+                        <div key={index} className="bg-white p-6 rounded-lg transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral">
                             <div className="flex items-center mb-4">
                                 <div className="flex-shrink-0">
                                     <img className="h-12 w-12 rounded-full" src={review.image} alt={review.name} />
                                 </div>
                                 <div className="ml-4">
-                                    <div className="text-lg font-medium text-gray-900">{review.name}</div>
-                                    <div className="text-sm text-gray-500">{review.time}</div>
+                                    <div className="text-lg font-medium text-gray-900 dark:text-[#dddddd]">{review.name}</div>
+                                    <div className="text-sm text-gray-500 dark:text-gray-400">{review.time}</div>
                                     <div className="text-yellow-400">{review.rating}</div>
                                 </div>
                             </div>
-                            <p className="text-gray-500 text-sm">{review.text}</p>
+                            <p className="text-gray-500 text-sm dark:text-[#dddddd]">{review.text}</p>
                         </div>
                     ))}
                 </motion.div>
