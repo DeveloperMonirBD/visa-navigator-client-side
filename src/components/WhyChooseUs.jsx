@@ -6,7 +6,7 @@ import { fadeIn } from '../variants';
 
 const WhyChooseUs = () => {
     return (
-        <section className="py-16 bg-gradient-to-r from-indigo-50 via-white to-blue-100">
+        <section className="py-16 bg-gradient-to-r from-blue-100 via-white to-indigo-50">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }}>
                     <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">Why Choose Us</h2>
