@@ -120,7 +120,7 @@ const MyVisaApplication = () => {
                     placeholder="Search by Country Name"
                     className="mt-1 block w-full pl-3 pr-10 py-4 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md dark:bg-neutral  dark:text-[#dddddd]"
                 />
-                <button onClick={handleSearch} className="bg-blue-500 text-white px-10 py-4 rounded-md ml-2">
+                <button onClick={handleSearch} className="bg-blue-500 text-white px-10 py-4 rounded-md ml-2 hidden lg:flex">
                     Search
                 </button>
             </div>
