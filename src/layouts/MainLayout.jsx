@@ -12,7 +12,7 @@ const MainLayout = () => {
                 <Navbar />
             </header>
 
-            <main className="bg-neutralSilver">
+            <main>
                 {/* Dynamic Section  */}
                 <div className="min-h-[calc(100vh-232px)] px-3 pb-20">
                     <Outlet />
