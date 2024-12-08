@@ -106,40 +106,58 @@ const Register = () => {
 
     return (
         <div className="md:min-h-screen flex justify-center items-center mb-10 pt-20">
-            <div className="card bg-base-100 w-full max-w-3xl shrink-0 shadow-2xl md:p-8">
+            <div className="card bg-base-100 w-full max-w-3xl shrink-0 shadow-2xl md:p-8 dark:bg-neutral  dark:text-[#dddddd]">
                 <h2 className="text-4xl text-brandPrimary font-semibold text-center pt-10">Register your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base">Your Name</span>
+                            <span className="label-text text-base dark:text-[#dddddd]">Your Name</span>
                         </label>
-                        <input type="text" name="name" placeholder="Enter your name" className="input input-bordered bg-[#F3F3F3]" required />
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter your name"
+                            className="input bg-[#F3F3F3] dark:bg-neutral  dark:text-[#dddddd] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 border-white"
+                            required
+                        />
                     </div>
                     {error.name && <label className="label text-sm text-rose-500">{error.name}</label>}
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base">Photo URL</span>
+                            <span className="label-text text-base dark:text-[#dddddd]">Photo URL</span>
                         </label>
-                        <input type="text" name="photo" placeholder="Enter your photo URL" className="input input-bordered bg-[#F3F3F3]" required />
+                        <input
+                            type="text"
+                            name="photo"
+                            placeholder="Enter your photo URL"
+                            className="input bg-[#F3F3F3] dark:bg-neutral  dark:text-[#dddddd] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 border-white"
+                            required
+                        />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-base">Email</span>
+                            <span className="label-text text-base dark:text-[#dddddd]">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="Enter your email" className="input input-bordered bg-[#F3F3F3]" required />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            className="input bg-[#F3F3F3] dark:bg-neutral  dark:text-[#dddddd] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 border-white"
+                            required
+                        />
                     </div>
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text text-base">Password</span>
+                            <span className="label-text text-base dark:text-[#dddddd]">Password</span>
                         </label>
                         <input
                             type={showPassword ? 'text' : 'password'}
                             name="password"
                             placeholder="Enter your password"
-                            className="input input-bordered bg-[#F3F3F3]"
+                            className="input bg-[#F3F3F3] dark:bg-neutral  dark:text-[#dddddd] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 border-white"
                             required
                             value={password}
                             onChange={e => setPassword(e.target.value)}
@@ -151,13 +169,13 @@ const Register = () => {
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text text-base">Confirm Password</span>
+                            <span className="label-text text-base dark:text-[#dddddd]">Confirm Password</span>
                         </label>
                         <input
                             type={showConfirmPassword ? 'text' : 'password'}
                             name="confirmPassword"
                             placeholder="Confirm your password"
-                            className="input input-bordered bg-[#F3F3F3]"
+                            className="input bg-[#F3F3F3] dark:bg-neutral  dark:text-[#dddddd] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 border-white"
                             required
                             value={confirmPassword}
                             onChange={e => setConfirmPassword(e.target.value)}
@@ -170,12 +188,12 @@ const Register = () => {
                     <div className="flex gap-3 mt-2">
                         <input className="w-5" type="checkbox" name="terms" />
                         <p className="text-gray-500 font-semibold text-base">
-                            Accept <span className="text-gray-700">Terms & Conditions</span>
+                            Accept <span className="text-gray-700 dark:text-[#dddddd]">Terms & Conditions</span>
                         </p>
                     </div>
 
                     <div className="form-control mt-6">
-                        <button className="btn text-brandLight text-base btn-neutral">Register</button>
+                        <button className="btn text-brandLight text-base btn-neutral dark:bg-gray-900 border-white  dark:text-[#dddddd]">Register</button>
                     </div>
 
                     {errorMessage && <p className="text-red-600 text-center mt-3">{errorMessage}</p>}

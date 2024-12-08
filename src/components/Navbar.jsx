@@ -1,9 +1,9 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 import { Link, NavLink } from 'react-router-dom';
 import userIcon from '../assets/user.png';
 import logo from '../assets/visaNavigator logo.png';
 import { AuthContext } from '../provider/AuthProvider';
-import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -64,7 +64,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-md dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-3 shadow text-brandPrimary font-semibold gap-2 dark:text-brandPrimary">
+                        className="menu menu-md dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-3 shadow text-brandPrimary font-semibold gap-2 dark:bg-gray-600  dark:text-[#dddddd] ">
                         {links}
                         {user && user?.email ? (
                             <button onClick={logOut} className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold">
@@ -72,7 +72,7 @@ const Navbar = () => {
                             </button>
                         ) : (
                             <>
-                                <Link to="/auth/login" className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold">
+                                <Link to="/auth/login" className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold ">
                                     Login
                                 </Link>
                                 <Link to="/auth/register" className="btn bg-brandSecondary text-brandLight hover:text-brandSecondary font-bold lg:ml-2">
@@ -141,11 +141,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-

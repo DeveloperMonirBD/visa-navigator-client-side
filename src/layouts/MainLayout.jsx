@@ -7,7 +7,7 @@ const MainLayout = () => {
     return (
         <div className="font-poppins dark:bg-gray-800 dark:text-white">
             <Toaster position="top-right" reverseOrder={false} />
-            <header className="sticky top-0 backdrop-blur-xl shadow-sm z-10">
+            <header className="sticky top-0 backdrop-blur-xl shadow-sm z-10 dark:backdrop-blur-none dark:bg-gray-800 dark:text-white">
                 {/* Navbar */}
                 <Navbar />
             </header>
