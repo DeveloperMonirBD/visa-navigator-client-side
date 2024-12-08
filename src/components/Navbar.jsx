@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import userIcon from '../assets/user.png';
 import logo from '../assets/visaNavigator logo.png';
@@ -9,15 +9,27 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [mode, setMode] = useState('light');
 
-    //  DarkMode-lightMode
+    // Load theme from local storage on mount
+    useEffect(() => {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+            setMode(storedTheme);
+            document.documentElement.classList.add(storedTheme);
+        }
+    }, []);
+
+    // Toggle Mode Function
     const toggleMode = () => {
         if (mode === 'light') {
             setMode('dark');
-            document.body.style.backgroundColor = 'rgb(17, 24, 39)';
-            document.body.style.color = 'white'
+            localStorage.setItem('theme', 'dark');
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
         } else {
             setMode('light');
-            document.body.style.backgroundColor = 'white';
+            localStorage.setItem('theme', 'light');
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
         }
     };
 
@@ -50,10 +62,12 @@ const Navbar = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-md dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-3 shadow text-brandPrimary font-semibold gap-2">
+                    <ul
+                        tabIndex={0}
+                        className="menu menu-md dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-3 shadow text-brandPrimary font-semibold gap-2 dark:text-brandPrimary">
                         {links}
                         {user && user?.email ? (
-                            <button onClick={logOut} className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary  font-bold">
+                            <button onClick={logOut} className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold">
                                 Log out
                             </button>
                         ) : (
@@ -61,7 +75,7 @@ const Navbar = () => {
                                 <Link to="/auth/login" className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold">
                                     Login
                                 </Link>
-                                <Link to="/auth/register" className="btn bg-brandSecondary text-brandLight hover:text-brandSecondary  font-bold lg:ml-2">
+                                <Link to="/auth/register" className="btn bg-brandSecondary text-brandLight hover:text-brandSecondary font-bold lg:ml-2">
                                     Register
                                 </Link>
                             </>
@@ -73,17 +87,16 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-brandPrimary gap-2 font-bold">{links}</ul>
+                <ul className="menu menu-horizontal px-1 text-brandPrimary gap-2 font-bold dark:text-brandPrimary">{links}</ul>
             </div>
             <div className="navbar-end md:flex gap-3">
-                <div className="">
+                <div>
                     {user && user?.email ? (
                         <div className="relative flex items-center gap-2 group">
-                            {/* Added group class */}
                             <Link to="/myProfile" className="flex lg:ml-10 items-center gap-2">
                                 <img className="w-14 h-14 rounded-full object-cover object-center" src={user?.photoURL} alt="" />
                             </Link>
-                            <span className="absolute min-w-48 top-full right-0 lg:-right-10 mt-2 bg-brandLight text-brandPrimary font-bold border border-gray-200 rounded shadow-md p-3 text-sm hidden group-hover:block">
+                            <span className="absolute min-w-48 top-full right-0 lg:-right-10 mt-2 bg-brandLight text-brandPrimary font-bold border border-gray-200 rounded shadow-md p-3 text-sm hidden group-hover:block dark:text-brandPrimary">
                                 {user.displayName}
                             </span>
                         </div>
@@ -91,7 +104,6 @@ const Navbar = () => {
                         <img className="rounded-full" src={userIcon} alt="user" />
                     )}
                 </div>
-
                 <div className="hidden lg:flex">
                     {user && user?.email ? (
                         <button onClick={logOut} className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold">
@@ -108,9 +120,6 @@ const Navbar = () => {
                         </div>
                     )}
                 </div>
-
-
-                {/* DarkMode-lightMode */}
                 <div>
                     {mode === 'light' ? (
                         <button onClick={toggleMode}>
@@ -126,11 +135,17 @@ const Navbar = () => {
                         </button>
                     )}
                 </div>
-
-
             </div>
         </div>
     );
 };
 
 export default Navbar;
+
+
+
+
+
+
+
+

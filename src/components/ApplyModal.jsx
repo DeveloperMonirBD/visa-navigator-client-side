@@ -53,28 +53,42 @@ const ApplyModal = ({ visa, setShowModal }) => {
 
     return (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
-            <div className="bg-brandLight p-6 md:p-8 mx-4 rounded-xl w-full  md:w-1/2">
+            <div className="bg-brandLight p-6 md:p-8 mx-4 rounded-xl w-full  md:w-1/2 dark:bg-neutral  dark:text-[#dddddd]">
                 <h2 className="text-brandPrimary text-2xl font-bold mb-6">Apply for {visa.countryName} Visa</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" name="email" value={formData.email} onChange={handleChange} className="mt-1 p-2 border rounded w-full" required />
+                        <label className="block text-sm font-medium text-gray-700 dark:text-[#dddddd]">Email</label>
+                        <input type="email" name="email" value={formData.email} onChange={handleChange} className="mt-1 p-2 border rounded w-full dark:bg-neutral  dark:text-[#dddddd]" required />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">First Name</label>
-                        <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="mt-1 p-2 border rounded w-full" required />
+                        <label className="block text-sm font-medium text-gray-700 dark:text-[#dddddd]">First Name</label>
+                        <input
+                            type="text"
+                            name="firstName"
+                            value={formData.firstName}
+                            onChange={handleChange}
+                            className="mt-1 p-2 border rounded w-full dark:bg-neutral  dark:text-[#dddddd]"
+                            required
+                        />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Last Name</label>
-                        <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="mt-1 p-2 border rounded w-full" required />
+                        <label className="block text-sm font-medium text-gray-700 dark:text-[#dddddd]">Last Name</label>
+                        <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="mt-1 p-2 border rounded w-full dark:bg-neutral  dark:text-[#dddddd]" required />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Applied Date</label>
-                        <input type="date" name="appliedDate" value={formData.appliedDate} onChange={handleChange} className="mt-1 p-2 border rounded w-full" required />
+                        <label className="block text-sm font-medium text-gray-700 dark:text-[#dddddd]">Applied Date</label>
+                        <input
+                            type="date"
+                            name="appliedDate"
+                            value={formData.appliedDate}
+                            onChange={handleChange}
+                            className="mt-1 p-2 border rounded w-full dark:bg-neutral  dark:text-[#dddddd]"
+                            required
+                        />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Fee (USD)</label>
-                        <input type="number" name="fee" value={formData.fee} onChange={handleChange} className="mt-1 p-2 border rounded w-full" required />
+                        <label className="block text-sm font-medium text-gray-700 dark:text-[#dddddd]">Fee (USD)</label>
+                        <input type="number" name="fee" value={formData.fee} onChange={handleChange} className="mt-1 p-2 border rounded w-full dark:bg-neutral  dark:text-[#dddddd]" required />
                     </div>
                     <button type="submit" className="bg-blue-500 text-brandLight px-4 py-2 rounded mt-4">
                         Apply

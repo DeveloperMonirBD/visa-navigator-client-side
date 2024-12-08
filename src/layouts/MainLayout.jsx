@@ -1,13 +1,13 @@
+import { Toaster } from 'react-hot-toast';
 import { Outlet } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { Toaster } from 'react-hot-toast';
 
 const MainLayout = () => {
     return (
-        <div className="font-poppins">
+        <div className="font-poppins dark:bg-gray-800 dark:text-white">
             <Toaster position="top-right" reverseOrder={false} />
-            <header className="sticky top-0 bg-brandLight bg-opacity-30 backdrop-blur-sm shadow-sm z-10">
+            <header className="sticky top-0 backdrop-blur-xl shadow-sm z-10">
                 {/* Navbar */}
                 <Navbar />
             </header>

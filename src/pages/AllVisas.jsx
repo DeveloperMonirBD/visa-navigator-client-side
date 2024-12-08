@@ -27,7 +27,7 @@ const AllVisas = () => {
                 <h1 className="text-brandPrimary text-4xl font-bold mb-6">All Visas</h1>
 
                 <div className="mb-8">
-                    <label htmlFor="visaType" className="block text-base font-medium text-gray-700">
+                    <label htmlFor="visaType" className="block text-base font-medium text-gray-700 dark:text-[#dddddd]">
                         Filter by Visa Type:
                     </label>
                     <select
@@ -35,7 +35,7 @@ const AllVisas = () => {
                         name="visaType"
                         value={selectedType}
                         onChange={handleFilterChange}
-                        className="mt-2 block w-full pl-3 pr-10 py-4 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-md rounded-lg">
+                        className="mt-2 block w-full pl-3 pr-10 py-4 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-md rounded-lg dark:bg-neutral  dark:text-[#dddddd]">
                         <option value="">All Visa Types</option>
                         <option value="Tourist visa">Tourist Visa</option>
                         <option value="Student visa">Student Visa</option>
@@ -47,7 +47,7 @@ const AllVisas = () => {
                     {filteredVisas.map(visa => (
                         <div
                             key={visa._id}
-                            className="bg-brandLight rounded-2xl p-6 md:p-6 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300">
+                            className="bg-brandLight rounded-2xl p-6 md:p-6 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral  dark:text-[#dddddd]">
                             <img src={visa.countryImage} alt={visa.countryName} className="w-full h-48 object-cover rounded-lg mb-4" />
                             <h2 className="text-2xl font-semibold">{visa.countryName}</h2>
                             <p className="pt-2">

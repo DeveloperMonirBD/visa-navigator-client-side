@@ -46,7 +46,7 @@ const VisaDetails = () => {
             {visa ? (
                 <>
                     <h2 className="text- 3xl text-brandPrimary md:text-4xl font-bold mb-6">{visa.countryName} Visa Details</h2>
-                    <div className="bg-brandLight rounded-2xl p-4 md:p-12 text-base md:text-lg md:space-y-2 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300">
+                    <div className="bg-brandLight rounded-2xl p-4 md:p-12 text-base md:text-lg md:space-y-2 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral  dark:text-[#dddddd]">
                         <img src={visa.countryImage} alt={visa.countryName} className="w-full h-56 md:h-72 object-cover rounded-lg mb-6" />
                         <p>
                             <strong>Visa Type:</strong> {visa.visaType}

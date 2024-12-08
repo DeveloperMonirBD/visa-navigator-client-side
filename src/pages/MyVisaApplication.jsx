@@ -116,9 +116,9 @@ const MyVisaApplication = () => {
                     type="text"
                     value={searchTerm}
                     onChange={handleSearchChange}
-                    onKeyUp={handleSearch} // Perform search on key up
+                    onKeyUp={handleSearch}
                     placeholder="Search by Country Name"
-                    className="mt-1 block w-full pl-3 pr-10 py-4 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    className="mt-1 block w-full pl-3 pr-10 py-4 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md dark:bg-neutral  dark:text-[#dddddd]"
                 />
                 <button onClick={handleSearch} className="bg-blue-500 text-white px-10 py-4 rounded-md ml-2">
                     Search
@@ -127,7 +127,9 @@ const MyVisaApplication = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 md:gap-8">
                 {filteredApplications.map(application => (
-                    <div key={application._id} className="bg-white rounded-2xl p-6 lg:p-8 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300">
+                    <div
+                        key={application._id}
+                        className="bg-white rounded-2xl p-6 lg:p-8 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral  dark:text-[#dddddd]">
                         <img src={application.countryImage} alt={application.countryName} className="w-full h-48 lg:h-56 object-cover rounded-lg mb-4" />
                         <h2 className="text-2xl font-semibold mb-2">{application.countryName}</h2>
                         <p className="pt-2">
