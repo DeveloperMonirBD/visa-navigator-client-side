@@ -53,30 +53,6 @@ const UpdateVisa = () => {
         }
     };
 
-    // const handleSubmit = async e => {
-    //     e.preventDefault();
-    //     try {
-    //         const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/visas/${LoadedVisa._id}`, {
-    //             method: 'PUT',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(formData)
-    //         });
-
-    //         if (response.ok) {
-    //             alert('Visa updated successfully!');
-    //             navigate('/myAddedVisas');
-    //         } else {
-    //             const data = await response.json();
-    //             alert(data.message);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error updating visa:', error);
-    //         alert('An error occurred while updating the visa.');
-    //     }
-    // };
-
     const handleSubmit = async e => {
         e.preventDefault();
         Swal.fire({ title: 'Do you want to save the changes?', showDenyButton: true, showCancelButton: true, confirmButtonText: 'Save', denyButtonText: `Don't save` }).then(async result => {

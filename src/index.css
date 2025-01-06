@@ -22,6 +22,11 @@
     }
 }
 
+.active{
+    background-color: #3F83F8 !important;
+    color: white !important;
+}
+
 .button-primary{
     @apply px-7 py-2 bg-brandPrimary text-brandLight rounded-lg hover:bg-neutralDGrey transition-all duration-300
 }

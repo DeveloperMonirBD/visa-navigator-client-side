@@ -35,20 +35,30 @@ const Navbar = () => {
 
     const links = (
         <>
-            <li className="hover:text-brandPrimary">
-                <NavLink to="/">Home</NavLink>
+            <li className="hover:text-brandPrimary ">
+                <NavLink to="/" className="dark:text-white">
+                    Home
+                </NavLink>
             </li>
             <li className="hover:text-brandPrimary">
-                <NavLink to="/allVisas">All Visas</NavLink>
+                <NavLink to="/allVisas" className="dark:text-white">
+                    All Visas
+                </NavLink>
             </li>
             <li className="hover:text-brandPrimary">
-                <NavLink to="/addVisa">Add Visa</NavLink>
+                <NavLink to="/addVisa" className="dark:text-white">
+                    Add Visa
+                </NavLink>
             </li>
             <li className="hover:text-brandPrimary">
-                <NavLink to="/myAddedVisas">My Added Visas</NavLink>
+                <NavLink to="/myAddedVisas" className="dark:text-white">
+                    My Added Visas
+                </NavLink>
             </li>
             <li className="hover:text-brandPrimary">
-                <NavLink to="/myVisaApplication">My Visa Application</NavLink>
+                <NavLink to="/myVisaApplication" className="dark:text-white">
+                    My Visa Application
+                </NavLink>
             </li>
         </>
     );
