@@ -7,6 +7,7 @@ import { fadeIn } from '../variants';
 
 const LatestVisas = () => {
     const [latestVisas, setLatestVisas] = useState([]);
+    console.log(latestVisas)
 
     useEffect(() => {
         const fetchLatestVisas = async () => {
@@ -25,7 +26,8 @@ const LatestVisas = () => {
     return (
         <motion.div variants={fadeIn('up', 0.4)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.6 }} className="container mx-auto py-8 px-4">
             <h2 className="text-brandPrimary text-4xl font-bold mb-8">Latest Visas</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-8">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
                 {latestVisas.map(visa => (
                     <div
                         key={visa._id}
@@ -53,6 +55,7 @@ const LatestVisas = () => {
                     </div>
                 ))}
             </div>
+
             <Link to="/allVisas" className="bg-blue-500 text-brandLight px-4 py-3 rounded mt-8 inline-block">
                 See All Visas
             </Link>

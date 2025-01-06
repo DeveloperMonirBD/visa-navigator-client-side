@@ -5,9 +5,9 @@ import Navbar from '../components/Navbar';
 
 const MainLayout = () => {
     return (
-        <div className="font-poppins dark:bg-gray-800 dark:text-white">
+        <div className="font-poppins bg-base-200 dark:bg-gray-800 dark:text-white">
             <Toaster position="top-right" reverseOrder={false} />
-            <header className="sticky top-0 backdrop-blur-xl shadow-sm z-10 dark:backdrop-blur-none dark:bg-gray-800 dark:text-white">
+            <header className="sticky top-0 backdrop-blur-2xl shadow-sm z-10 dark:backdrop-blur-none dark:bg-neutral dark:text-white">
                 {/* Navbar */}
                 <Navbar />
             </header>

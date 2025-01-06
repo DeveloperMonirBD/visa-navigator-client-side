@@ -45,21 +45,25 @@ const Navbar = () => {
                     All Visas
                 </NavLink>
             </li>
-            <li className="hover:text-brandPrimary">
-                <NavLink to="/addVisa" className="dark:text-white">
-                    Add Visa
-                </NavLink>
-            </li>
-            <li className="hover:text-brandPrimary">
-                <NavLink to="/myAddedVisas" className="dark:text-white">
-                    My Added Visas
-                </NavLink>
-            </li>
-            <li className="hover:text-brandPrimary">
-                <NavLink to="/myVisaApplication" className="dark:text-white">
-                    My Visa Application
-                </NavLink>
-            </li>
+            {user && user.email && (
+                <>
+                    <li className="hover:text-brandPrimary">
+                        <NavLink to="/addVisa" className="dark:text-white">
+                            Add Visa
+                        </NavLink>
+                    </li>
+                    <li className="hover:text-brandPrimary">
+                        <NavLink to="/myAddedVisas" className="dark:text-white">
+                            My Added Visas
+                        </NavLink>
+                    </li>
+                    <li className="hover:text-brandPrimary">
+                        <NavLink to="/myVisaApplication" className="dark:text-white">
+                            My Visa Application
+                        </NavLink>
+                    </li>
+                </>
+            )}
         </>
     );
 
@@ -74,7 +78,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-md dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-3 shadow text-brandPrimary font-semibold gap-2 dark:bg-gray-600  dark:text-[#dddddd] ">
+                        className="menu menu-md dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-3 shadow text-brandPrimary font-semibold gap-2 dark:bg-gray-600 dark:text-[#dddddd] ">
                         {links}
                         {user && user?.email ? (
                             <button onClick={logOut} className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold">
@@ -82,7 +86,7 @@ const Navbar = () => {
                             </button>
                         ) : (
                             <>
-                                <Link to="/auth/login" className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold ">
+                                <Link to="/auth/login" className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold">
                                     Login
                                 </Link>
                                 <Link to="/auth/register" className="btn bg-brandSecondary text-brandLight hover:text-brandSecondary font-bold lg:ml-2">
@@ -96,10 +100,11 @@ const Navbar = () => {
                     <img className="hidden md:flex w-24 rounded-xl" src={logo} alt="logo" />
                 </Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-brandPrimary gap-2 font-bold dark:text-brandPrimary">{links}</ul>
-            </div>
+
             <div className="navbar-end md:flex gap-3">
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1 text-brandPrimary gap-2 font-bold dark:text-brandPrimary">{links}</ul>
+                </div>
                 <div>
                     {user && user?.email ? (
                         <div className="relative flex items-center gap-2 group">
@@ -116,7 +121,7 @@ const Navbar = () => {
                 </div>
                 <div className="hidden lg:flex">
                     {user && user?.email ? (
-                        <button onClick={logOut} className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold">
+                        <button onClick={logOut} className="btn bg-brandPrimary text-brandLight hover:text-brandPrimary font-bold mr-6">
                             Log out
                         </button>
                     ) : (

@@ -4,7 +4,7 @@ import logo from '../assets/visaNavigator logo.png';
 
 const Footer = () => {
     return (
-        <div id="footer" className=" bg-[#2C2C54] text-brandLight px-3 py-20 dark:bg-neutral  dark:text-[#dddddd]">
+        <div id="footer" className=" bg-[#2C2C54] text-brandLight px-3 pt-20 dark:bg-neutral  dark:text-[#dddddd]">
             <footer className="footer p-10 container mx-auto lg:flex lg:justify-between items-start gap-10">
                 <nav>
                     <div>
@@ -13,9 +13,9 @@ const Footer = () => {
                         </Link>
                     </div>
                     <div className="text-base space-y-2 mt-2">
-                        <p>Location: av. Washington 165, NY CA 54003</p>
-                        <p>Phone: +31 85 964 47 25</p>
-                        <p>Email: info@yourdomain.com</p>
+                        <p>Location: Dhaka, Bangladesh</p>
+                        <p>Phone: +88 01745286828</p>
+                        <p>Email: mrmonir0558@gmail.com</p>
                         <p>Openings hours: 9.00 AM - 5.00 PM</p>
                     </div>
                     <div className="flex gap-10 mt-4">

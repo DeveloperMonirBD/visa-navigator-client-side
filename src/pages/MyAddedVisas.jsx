@@ -81,7 +81,7 @@ const MyAddedVisas = () => {
         <div className="container mx-auto py-16 px-4">
             <motion.div variants={fadeIn('up', 0.4)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.6 }}>
                 <h2 className="text-brandPrimary text-4xl font-bold mb-8">My Added Visas</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
                     {myAddedVisas.map(visa => (
                         <div
                             key={visa._id}
