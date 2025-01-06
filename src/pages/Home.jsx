@@ -1,4 +1,5 @@
 import Banner from '../components/Banner';
+import ContactSection from '../components/ContactSection';
 import CustomerReviews from '../components/CustomerReviews';
 import LatestVisas from '../components/LatestVisas';
 import WhyChooseUs from '../components/WhyChooseUs';
@@ -10,6 +11,7 @@ const Home = () => {
             <LatestVisas />
             <WhyChooseUs />
             <CustomerReviews />
+            <ContactSection />
         </div>
     );
 };

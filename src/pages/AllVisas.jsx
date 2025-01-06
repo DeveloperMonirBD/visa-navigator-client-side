@@ -10,6 +10,7 @@ const AllVisas = () => {
     const visas = useLoaderData();
     const [filteredVisas, setFilteredVisas] = useState(visas);
     const [selectedType, setSelectedType] = useState('');
+    const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
 
     const handleFilterChange = event => {
         const visaType = event.target.value;
@@ -21,26 +22,52 @@ const AllVisas = () => {
         }
     };
 
+    const sortVisas = order => {
+        setSortOrder(order);
+        const sortedVisas = [...filteredVisas].sort((a, b) => {
+            if (order === 'asc') {
+                return a.countryName.localeCompare(b.countryName);
+            } else {
+                return b.countryName.localeCompare(a.countryName);
+            }
+        });
+        setFilteredVisas(sortedVisas);
+    };
+
     return (
         <div className="container mx-auto pt-10 pb-20 px-4">
             <motion.div variants={fadeIn('up', 0.3)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.4 }}>
                 <h1 className="text-brandPrimary text-4xl font-bold mb-6">All Visas</h1>
 
-                <div className="mb-8">
-                    <label htmlFor="visaType" className="block text-base font-medium text-gray-700 dark:text-[#dddddd]">
-                        Filter by Visa Type:
-                    </label>
-                    <select
-                        id="visaType"
-                        name="visaType"
-                        value={selectedType}
-                        onChange={handleFilterChange}
-                        className="mt-2 block w-full pl-3 pr-10 py-4 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-md rounded-lg dark:bg-neutral  dark:text-[#dddddd]">
-                        <option value="">All Visa Types</option>
-                        <option value="Tourist visa">Tourist Visa</option>
-                        <option value="Student visa">Student Visa</option>
-                        <option value="Official visa">Official Visa</option>
-                    </select>
+                <div className='md:flex justify-between gap-8'>
+                    <div className="mb-8 md:w-[360px]">
+                        <label htmlFor="visaType" className="block text-base font-medium text-gray-700 dark:text-[#dddddd]">
+                            Filter by Visa Type:
+                        </label>
+                        <select
+                            id="visaType"
+                            name="visaType"
+                            value={selectedType}
+                            onChange={handleFilterChange}
+                            className="mt-2 block w-full pl-3 pr-10 py-4 text-base border-brandPrimary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-md rounded-lg dark:bg-neutral  dark:text-[#dddddd]">
+                            <option value="">All Visa Types</option>
+                            <option value="Tourist visa">Tourist Visa</option>
+                            <option value="Student visa">Student Visa</option>
+                            <option value="Official visa">Official Visa</option>
+                        </select>
+                    </div>
+
+                    <div className="mb-8">
+                        <label className="block text-base font-medium text-gray-700 dark:text-[#dddddd] mb-2">Sort by Country Name:</label>
+                        <div className="flex space-x-4">
+                            <button onClick={() => sortVisas('asc')} className={`px-4 py-2 rounded-lg ${sortOrder === 'asc' ? 'bg-indigo-600 text-white' : 'bg-gray-200 text-gray-800'}`}>
+                                Ascending
+                            </button>
+                            <button onClick={() => sortVisas('desc')} className={`px-4 py-2 rounded-lg ${sortOrder === 'desc' ? 'bg-indigo-600 text-white' : 'bg-gray-200 text-gray-800'}`}>
+                                Descending
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

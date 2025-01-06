@@ -13,8 +13,8 @@ import MyVisaApplication from '../pages/MyVisaApplication';
 import ProfileUpdate from '../pages/ProfileUpdate';
 import Register from '../pages/Register';
 import UpdateVisa from '../pages/UpdateVisa';
-import VisaDetails from '../pages/VisaDetails';
 import PrivetRoute from './PrivetRoute';
+import VisaDetails from '../pages/VisaDetails';
 
 const routes = createBrowserRouter([
     {
@@ -25,6 +25,14 @@ const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />
+            },
+            {
+                path: '/latestVisas',
+                element: <LatestVisas />
+            },
+            {
+                path: '/visaDetails/:id',
+                element: <VisaDetails />
             },
             {
                 path: '/allVisas',
@@ -39,15 +47,6 @@ const routes = createBrowserRouter([
                     </PrivetRoute>
                 )
             },
-            {
-                path: '/visaDetails/:id',
-                element: <VisaDetails />
-            },
-            {
-                path: '/latestVisas',
-                element: <LatestVisas />
-            },
-
             {
                 path: '/myAddedVisas',
                 element: (

@@ -13,33 +13,24 @@ const VisaDetails = () => {
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        console.log('Visa ID:', id);
+       const fetchVisaDetails = async () => {
+           try {
+               const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/api/visas/${id}`);
+               if (!response.ok) {
+                   throw new Error('Network response was not ok');
+               }
+               const data = await response.json();
+               console.log('Fetched Visa Data:', data);
+               setVisa(data);
+           } catch (error) {
+               console.error('Error fetching visa details:', error);
+           }
+       };
+       if (id) {
+           fetchVisaDetails();
+       }
+    }, [id]);
 
-        if (!user) {
-            navigate('/auth/login');
-        } else {
-            const fetchVisaDetails = async () => {
-                try {
-                    const response = await fetch(`https://b10-a10-server-side-ten.vercel.app/api/visas/${id}`);
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    const data = await response.json();
-                    console.log('Fetched Visa Data:', data);
-                    setVisa(data);
-                } catch (error) {
-                    console.error('Error fetching visa details:', error);
-                }
-            };
-            if (id) {
-                fetchVisaDetails();
-            }
-        }
-    }, [id, user, navigate]);
-
-    if (!user) {
-        return <p>Redirecting to login...</p>;
-    }
 
     return (
         <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="max-w-4xl mx-auto px-4 py-20">
