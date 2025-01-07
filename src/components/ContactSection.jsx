@@ -1,10 +1,15 @@
+//motion
+import { motion } from 'framer-motion';
+//variants
+import { fadeIn } from '../variants';
+
 import Lottie from 'lottie-react';
 import contactLottieData from '../assets/Animation - 1736176462106.json';
 
 const ContactSection = () => {
     return (
         <div id="contact" className="contact py-16 border-t dark:border-none bg-white dark:bg-gray-600">
-            <div className="container mx-auto px-6">
+            <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="container mx-auto px-6">
                 <div className="flex flex-wrap">
                     <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
                         <Lottie animationData={contactLottieData} />
@@ -71,7 +76,7 @@ const ContactSection = () => {
                         </form>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 };
