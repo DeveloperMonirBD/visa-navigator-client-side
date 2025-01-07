@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import ApplyModal from '../components/ApplyModal';
 import PageTitle from '../components/PageTitle';
 import { fadeIn } from '../variants';
+import { AuthContext } from '../provider/AuthProvider';
 
 const VisaDetails = () => {
     const { id } = useParams();
+    const { user } = useContext(AuthContext);
     const [visa, setVisa] = useState(null);
     const [showModal, setShowModal] = useState(false);
 
@@ -61,9 +63,17 @@ const VisaDetails = () => {
                             <p className="mt-1 mb-4 mr-8">{visa.description}</p>
 
                             <div className="card-actions justify-start lg:mr-8 mb-8">
-                                <button className="bg-brandPrimary text-brandLight px-4 py-4 rounded mt-6" onClick={() => setShowModal(true)}>
-                                    Apply for the Visa
-                                </button>
+                                {user ? (
+                                    <button className="bg-brandPrimary text-brandLight px-4 py-4 rounded mt-6" onClick={() => setShowModal(true)}>
+                                        Apply for the Visa
+                                    </button>
+                                ) : (
+                                    <Link to="/auth/login">
+                                        <button className="bg-brandPrimary text-brandLight px-4 py-4 rounded mt-6" onClick={() => setShowModal(true)}>
+                                            Apply for the Visa
+                                        </button>
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>

@@ -121,10 +121,10 @@ const MyAddedVisas = () => {
                                 <p className="pb-3">
                                     <strong>Application Method:</strong> {visa.applicationMethod}
                                 </p>
-                                <Link to={`/updateVisa/${visa._id}`} className="bg-blue-500 text-white px-6 py-6 rounded mt-4 inline-block">
+                                <Link to={`/updateVisa/${visa._id}`} className="bg-blue-500 text-white px-6 py-3 rounded mt-4 inline-block">
                                     Update
                                 </Link>
-                                <button className="bg-red-500 text-white px-6 py-6 rounded mt-4 ml-3" onClick={() => handleDelete(visa._id)}>
+                                <button className="bg-red-500 text-white px-6 py-3 rounded mt-4 ml-3" onClick={() => handleDelete(visa._id)}>
                                     Delete
                                 </button>
                             </div>
