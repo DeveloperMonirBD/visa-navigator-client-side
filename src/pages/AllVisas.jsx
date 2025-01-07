@@ -5,6 +5,7 @@ import { fadeIn } from '../variants';
 
 import { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import PageTitle from '../components/PageTitle';
 
 const AllVisas = () => {
     const visas = useLoaderData();
@@ -36,6 +37,9 @@ const AllVisas = () => {
 
     return (
         <div className="container mx-auto pt-10 pb-20 px-4">
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="All Visas" />
+
             <motion.div variants={fadeIn('up', 0.3)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.4 }}>
                 <h1 className="text-brandPrimary text-4xl font-bold mb-6">All Visas</h1>
 

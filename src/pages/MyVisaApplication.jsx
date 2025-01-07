@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 
 import { AuthContext } from '../provider/AuthProvider';
+import PageTitle from '../components/PageTitle';
 
 const MyVisaApplication = () => {
     const { user } = useContext(AuthContext);
@@ -109,6 +110,10 @@ const MyVisaApplication = () => {
 
     return (
         <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="container mx-auto pt-16 pb-20 px-4">
+
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="My Visa Application" />
+
             <h2 className="text-brandPrimary text-4xl font-bold mb-8">My Visa Applications</h2>
 
             <div className="mb-8 flex items-center">
@@ -144,7 +149,7 @@ const MyVisaApplication = () => {
                     </thead>
                     <tbody>
                         {filteredApplications.map((application, index) => (
-                            <tr key={application._id} className='border-gray-600'>
+                            <tr key={application._id} className="border-gray-600">
                                 <th>{index + 1}</th>
                                 <td>
                                     <div className="flex items-center gap-3">

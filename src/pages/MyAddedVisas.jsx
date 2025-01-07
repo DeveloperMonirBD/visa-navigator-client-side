@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
+import PageTitle from '../components/PageTitle';
 
 const MyAddedVisas = () => {
     const { user } = useContext(AuthContext);
@@ -82,6 +83,9 @@ const MyAddedVisas = () => {
     }
     return (
         <div className="container mx-auto py-16 px-4">
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="My Added Visas" />
+
             <motion.div variants={fadeIn('up', 0.4)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.6 }}>
                 <h2 className="text-brandPrimary text-4xl font-bold mb-8">My Added Visas</h2>
 

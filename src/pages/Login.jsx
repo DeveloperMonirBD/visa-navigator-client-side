@@ -6,6 +6,7 @@ import google from '../../src/assets/google.png';
 import { AuthContext } from '../provider/AuthProvider';
 
 import { toast, Toaster } from 'react-hot-toast';
+import PageTitle from '../components/PageTitle';
 
 const Login = () => {
     const { userLogin, setUser, auth } = useContext(AuthContext);
@@ -65,6 +66,10 @@ const Login = () => {
 
     return (
         <div className="md:min-h-[calc(100vh-200px)] flex justify-center items-center pt-20 ">
+
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="Login" />
+
             <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl md:p-8 pt-6 dark:bg-neutral  dark:text-[#dddddd]">
                 <h2 className="text-4xl font-semibold text-center text-brandPrimary pt-6">Login your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">

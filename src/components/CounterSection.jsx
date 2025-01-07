@@ -27,33 +27,33 @@ const CounterSection = () => {
         <section className="countersection bg-gray-100 dark:bg-gray-800 py-8">
             <motion.div variants={fadeIn('up', 0.3)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.4 }} className="container mx-auto px-4">
                 <div className="flex flex-wrap justify-around">
-                    <div className="counter-item text-center p-4 flex flex-col justify-center items-center gap-4">
+                    <div className="counter-item text-center p-4 flex flex-col justify-center items-center gap-5">
                         <div className="counter-icon mb-2">
-                            <FaGlobe className="text-4xl text-blue-500 dark:text-blue-300" />
+                            <FaGlobe className="text-5xl text-blue-500 dark:text-blue-300" />
                         </div>
-                        <div className="counter-number text-2xl font-bold text-gray-900 dark:text-gray-100">{countries}+</div>
-                        <div className="counter-label text-sm text-gray-600 dark:text-gray-400">Countries Represented</div>
+                        <div className="counter-number text-3xl font-bold text-gray-900 dark:text-gray-100">{countries}+</div>
+                        <div className="counter-label text-base text-gray-600 dark:text-gray-400">Countries Represented</div>
                     </div>
-                    <div className="counter-item text-center p-4 flex flex-col justify-center items-center gap-4">
+                    <div className="counter-item text-center p-4 flex flex-col justify-center items-center gap-5">
                         <div className="counter-icon mb-2">
-                            <FaPassport className="text-4xl text-green-500 dark:text-green-300" />
+                            <FaPassport className="text-5xl text-green-500 dark:text-green-300" />
                         </div>
-                        <div className="counter-number text-2xl font-bold text-gray-900 dark:text-gray-100">{visas}+</div>
-                        <div className="counter-label text-sm text-gray-600 dark:text-gray-400">Completed Visa Passport</div>
+                        <div className="counter-number text-3xl font-bold text-gray-900 dark:text-gray-100">{visas}+</div>
+                        <div className="counter-label text-base text-gray-600 dark:text-gray-400">Completed Visa Passport</div>
                     </div>
-                    <div className="counter-item text-center p-4 flex flex-col justify-center items-center gap-4">
+                    <div className="counter-item text-center p-4 flex flex-col justify-center items-center gap-5">
                         <div className="counter-icon mb-2">
-                            <FaDollarSign className="text-4xl text-yellow-500 dark:text-yellow-300" />
+                            <FaDollarSign className="text-5xl text-yellow-500 dark:text-yellow-300" />
                         </div>
-                        <div className="counter-number text-2xl font-bold text-gray-900 dark:text-gray-100">{revenue}M+</div>
-                        <div className="counter-label text-sm text-gray-600 dark:text-gray-400">Revenue In per year</div>
+                        <div className="counter-number text-3xl font-bold text-gray-900 dark:text-gray-100">{revenue}M+</div>
+                        <div className="counter-label text-base text-gray-600 dark:text-gray-400">Revenue In per year</div>
                     </div>
-                    <div className="counter-item text-center p-4 flex flex-col justify-center items-center gap-4">
+                    <div className="counter-item text-center p-4 flex flex-col justify-center items-center gap-5">
                         <div className="counter-icon mb-2">
-                            <FaUserTie className="text-4xl text-purple-500 dark:text-purple-300" />
+                            <FaUserTie className="text-5xl text-purple-500 dark:text-purple-300" />
                         </div>
-                        <div className="counter-number text-2xl font-bold text-gray-900 dark:text-gray-100">{experience}+</div>
-                        <div className="counter-label text-sm text-gray-600 dark:text-gray-400">Experience immigration officer</div>
+                        <div className="counter-number text-3xl font-bold text-gray-900 dark:text-gray-100">{experience}+</div>
+                        <div className="counter-label text-base text-gray-600 dark:text-gray-400">Experience immigration officer</div>
                     </div>
                 </div>
             </motion.div>

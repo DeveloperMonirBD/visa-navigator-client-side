@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
+import PageTitle from '../components/PageTitle';
 import { AuthContext } from '../provider/AuthProvider';
 
 const AddVisa = () => {
@@ -99,6 +100,9 @@ const AddVisa = () => {
 
     return (
         <div className="container mx-auto px-4 py-16">
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="Add Visa" />
+
             <h2 className="text-brandPrimary text-4xl font-bold mb-6">Add Visa</h2>
             <form onSubmit={handleSubmit} className="space-y-4 text-base">
                 <div>

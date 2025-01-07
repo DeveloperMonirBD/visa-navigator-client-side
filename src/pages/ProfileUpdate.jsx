@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { toast, Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import PageTitle from '../components/PageTitle';
 
 const ProfileUpdate = () => {
     const { auth, updateUserProfile, setUser } = useContext(AuthContext);
@@ -54,6 +55,10 @@ const ProfileUpdate = () => {
 
     return (
         <div className="min-h-screen flex justify-center items-center">
+
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="Profile Update" />
+
             <div className="card bg-base-100 w-full max-w-md p-8 shadow-2xl">
                 <h2 className="text-3xl font-semibold text-center">Update Profile</h2>
                 <form onSubmit={handleSubmit} className="card-body">

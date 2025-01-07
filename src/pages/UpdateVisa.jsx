@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import PageTitle from '../components/PageTitle';
 
 const UpdateVisa = () => {
     const navigate = useNavigate();
@@ -83,6 +84,10 @@ const UpdateVisa = () => {
 
     return (
         <div className="container mx-auto px-4 py-20">
+
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="Update Visa" />
+
             <h2 className="text-brandPrimary text-4xl font-bold mb-10 text-center">Update Visa Information</h2>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-4">
                 <div className="md:col-span-1">

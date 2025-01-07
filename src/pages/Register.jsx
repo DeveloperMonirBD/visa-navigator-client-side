@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import google from '../../src/assets/google.png';
 import { AuthContext } from '../provider/AuthProvider';
+import PageTitle from '../components/PageTitle';
 
 const Register = () => {
     const { createNewUser, setUser, updateUserProfile, auth } = useContext(AuthContext);
@@ -106,6 +107,10 @@ const Register = () => {
 
     return (
         <div className="md:min-h-screen flex justify-center items-center mb-10 pt-20">
+
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="Register" />
+
             <div className="card bg-base-100 w-full max-w-3xl shrink-0 shadow-2xl md:p-8 dark:bg-neutral  dark:text-[#dddddd]">
                 <h2 className="text-4xl text-brandPrimary font-semibold text-center pt-10">Register your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">

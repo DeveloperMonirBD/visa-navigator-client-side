@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ApplyModal from '../components/ApplyModal';
+import PageTitle from '../components/PageTitle';
 import { fadeIn } from '../variants';
 
 const VisaDetails = () => {
@@ -30,6 +31,9 @@ const VisaDetails = () => {
 
     return (
         <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="max-w-7xl mx-auto px-4 py-20">
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="Visa Details" />
+
             {visa ? (
                 <>
                     <h2 className="text- 3xl text-brandPrimary md:text-4xl font-bold mb-6">{visa.countryName} Visa Details</h2>

@@ -8,11 +8,14 @@ import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import userIcon from '../assets/user.png';
 import { Link } from 'react-router-dom';
+import PageTitle from '../components/PageTitle';
 
 const MyProfile = () => {
     const { user } = useContext(AuthContext);
     return (
-        <>
+        <div>
+            {/* Setup Page-Title by react Helmet */}
+            <PageTitle title="My Profile" />
             <motion.div
                 variants={fadeIn('up', 0.2)}
                 initial="hidden"
@@ -42,7 +45,7 @@ const MyProfile = () => {
                     Update Profile
                 </Link>
             </motion.div>
-        </>
+        </div>
     );
 };
 
