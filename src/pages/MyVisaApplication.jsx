@@ -144,7 +144,7 @@ const MyVisaApplication = () => {
                     </thead>
                     <tbody>
                         {filteredApplications.map((application, index) => (
-                            <tr key={application._id}>
+                            <tr key={application._id} className='border-gray-600'>
                                 <th>{index + 1}</th>
                                 <td>
                                     <div className="flex items-center gap-3">

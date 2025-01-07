@@ -36,9 +36,9 @@ const VisaDetails = () => {
 
                     {/* Card start  */}
 
-                    <div className="card md:card-side bg-base-100 shadow-xl space-x-6 md:space-x-10">
+                    <div className="card md:card-side bg-base-100 shadow-xl space-x-6 md:space-x-10 dark:bg-neutral  dark:text-[#dddddd]">
                         <figure>
-                            <div className="h-72 md:h-[500px] md:w-[400px] border">
+                            <div className="h-72 md:h-[500px] md:w-[400px] border dark:border-none">
                                 <img src={visa.countryImage} alt={visa.countryName} className="h-full w-56 md:w-full object-cover" />
                             </div>
                         </figure>

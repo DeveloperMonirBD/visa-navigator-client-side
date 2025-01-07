@@ -132,20 +132,20 @@ const MyAddedVisas = () => {
                             <thead>
                                 <tr className="bg-brandPrimary text-white text-sm">
                                     <th className="px-4 py-2">Sl.No</th>
-                                    <th className="py-2 px-4 border-b">Country</th>
-                                    <th className="py-2 px-4 border-b">Visa Type</th>
-                                    <th className="py-2 px-4 border-b">Processing Time</th>
-                                    <th className="py-2 px-4 border-b">Fee</th>
-                                    <th className="py-2 px-4 border-b">Validity</th>
-                                    <th className="py-2 px-4 border-b">Application Method</th>
-                                    <th className="py-2 px-4 border-b">Actions</th>
+                                    <th className="py-2 px-4">Country</th>
+                                    <th className="py-2 px-4">Visa Type</th>
+                                    <th className="py-2 px-4">Processing Time</th>
+                                    <th className="py-2 px-4">Fee</th>
+                                    <th className="py-2 px-4">Validity</th>
+                                    <th className="py-2 px-4">Application Method</th>
+                                    <th className="py-2 px-4">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {myAddedVisas.map((visa, index) => (
-                                    <tr key={visa._id} className="text-sm pt-6">
-                                        <td className="py-6 px-4 border-b">{index + 1}</td>
-                                        <td className="py-6 border-b">
+                                    <tr key={visa._id} className="text-sm pt-6 border-t border-gray-600">
+                                        <td className="py-6 px-4">{index + 1}</td>
+                                        <td className="py-6">
                                             <div className="flex items-center gap-3">
                                                 <div className="avatar">
                                                     <div className="mask mask-squircle h-12 w-12">
@@ -158,12 +158,12 @@ const MyAddedVisas = () => {
                                                 </div>
                                             </div>
                                         </td>
-                                        <td className="py-6 px-4 border-b">{visa.visaType}</td>
-                                        <td className="py-6 px-4 border-b">{visa.processingTime}</td>
-                                        <td className="py-6 px-4 border-b">${visa.fee} USD</td>
-                                        <td className="py-6 px-4 border-b">{visa.validity}</td>
-                                        <td className="py-6 px-4 border-b">{visa.applicationMethod}</td>
-                                        <td className="py-6 px-4 border-b flex space-x-2">
+                                        <td className="py-6 px-4">{visa.visaType}</td>
+                                        <td className="py-6 px-4">{visa.processingTime}</td>
+                                        <td className="py-6 px-4">${visa.fee} USD</td>
+                                        <td className="py-6 px-4">{visa.validity}</td>
+                                        <td className="py-6 px-4">{visa.applicationMethod}</td>
+                                        <td className="py-6 px-4 flex space-x-2">
                                             <Link to={`/updateVisa/${visa._id}`} className="bg-blue-500 text-white btn">
                                                 Update
                                             </Link>
