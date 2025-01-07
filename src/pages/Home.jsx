@@ -2,7 +2,6 @@ import Banner from '../components/Banner';
 import ContactSection from '../components/ContactSection';
 import CustomerReviews from '../components/CustomerReviews';
 import LatestVisas from '../components/LatestVisas';
-import Map from '../components/Map';
 import WhyChooseUs from '../components/WhyChooseUs';
 
 const Home = () => {

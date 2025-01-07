@@ -7,11 +7,14 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
+
 const MyAddedVisas = () => {
     const { user } = useContext(AuthContext);
     const [myAddedVisas, setMyAddedVisas] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [view, setView] = useState('table'); // Initial view set to 'table'
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -81,39 +84,90 @@ const MyAddedVisas = () => {
         <div className="container mx-auto py-16 px-4">
             <motion.div variants={fadeIn('up', 0.4)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.6 }}>
                 <h2 className="text-brandPrimary text-4xl font-bold mb-8">My Added Visas</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-                    {myAddedVisas.map(visa => (
-                        <div
-                            key={visa._id}
-                            className="bg-white rounded-2xl p-6 lg:p-8 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral  dark:text-[#dddddd]">
-                            <img src={visa.countryImage} alt={visa.countryName} className="w-full h-48 lg:h-56 object-cover rounded-lg mb-4" />
-                            <h2 className="text-2xl font-semibold mb-2">{visa.countryName}</h2>
-                            <p className="pt-2">
-                                <strong>Visa Type:</strong> {visa.visaType}
-                            </p>
-                            <p>
-                                <strong>Processing Time:</strong> {visa.processingTime}
-                            </p>
-                            <p>
-                                <strong>Fee:</strong> ${visa.fee} USD
-                            </p>
-                            <p>
-                                <strong>Validity:</strong> {visa.validity}
-                            </p>
-                            <p className="pb-3">
-                                <strong>Application Method:</strong> {visa.applicationMethod}
-                            </p>
-                            <Link to={`/updateVisa/${visa._id}`} className="bg-blue-500 text-white px-6 py-3 rounded mt-4 inline-block">
-                                Update
-                            </Link>
-                            <button className="bg-red-500 text-white px-6 py-3 rounded mt-4 ml-3" onClick={() => handleDelete(visa._id)}>
-                                Delete
-                            </button>
-                        </div>
-                    ))}
+
+                <div className="flex justify-end mb-4">
+                    <button onClick={() => setView('card')} className={`px-4 py-2 rounded-md ${view === 'card' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}>
+                        Card View
+                    </button>
+                    <button onClick={() => setView('table')} className={`ml-2 px-4 py-2 rounded-md ${view === 'table' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}>
+                        Table View
+                    </button>
                 </div>
+
+                {view === 'card' ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+                        {myAddedVisas.map(visa => (
+                            <div
+                                key={visa._id}
+                                className="bg-white rounded-2xl p-6 lg:p-8 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral  dark:text-[#dddddd]">
+                                <img src={visa.countryImage} alt={visa.countryName} className="w-full h-48 lg:h-56 object-cover rounded-lg mb-4" />
+                                <h2 className="text-2xl font-semibold mb-2">{visa.countryName}</h2>
+                                <p className="pt-2">
+                                    <strong>Visa Type:</strong> {visa.visaType}
+                                </p>
+                                <p>
+                                    <strong>Processing Time:</strong> {visa.processingTime}
+                                </p>
+                                <p>
+                                    <strong>Fee:</strong> ${visa.fee} USD
+                                </p>
+                                <p>
+                                    <strong>Validity:</strong> {visa.validity}
+                                </p>
+                                <p className="pb-3">
+                                    <strong>Application Method:</strong> {visa.applicationMethod}
+                                </p>
+                                <Link to={`/updateVisa/${visa._id}`} className="bg-blue-500 text-white px-6 py-3 rounded mt-4 inline-block">
+                                    Update
+                                </Link>
+                                <button className="bg-red-500 text-white px-6 py-3 rounded mt-4 ml-3" onClick={() => handleDelete(visa._id)}>
+                                    Delete
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="overflow-x-auto">
+                        <table className="min-w-full dark:bg-neutral dark:text-[#dddddd]">
+                            <thead>
+                                <tr className="bg-brandPrimary text-white text-sm">
+                                    <th className="px-4 py-2">Sl.No</th>
+                                    <th className="py-2 px-4 border-b">Country</th>
+                                    <th className="py-2 px-4 border-b">Visa Type</th>
+                                    <th className="py-2 px-4 border-b">Processing Time</th>
+                                    <th className="py-2 px-4 border-b">Fee</th>
+                                    <th className="py-2 px-4 border-b">Validity</th>
+                                    <th className="py-2 px-4 border-b">Application Method</th>
+                                    <th className="py-2 px-4 border-b">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {myAddedVisas.map((visa, index) => (
+                                    <tr key={visa._id} className="text-sm pt-4">
+                                        <td className="py-2 px-4 border-b">{index + 1}</td>
+                                        <td className="py-2 border-b">{visa.countryName}</td>
+                                        <td className="py-2 px-4 border-b">{visa.visaType}</td>
+                                        <td className="py-2 px-4 border-b">{visa.processingTime}</td>
+                                        <td className="py-2 px-4 border-b">${visa.fee} USD</td>
+                                        <td className="py-2 px-4 border-b">{visa.validity}</td>
+                                        <td className="py-2 px-4 border-b">{visa.applicationMethod}</td>
+                                        <td className="py-2 px-4 border-b flex space-x-2">
+                                            <Link to={`/updateVisa/${visa._id}`} className="bg-blue-500 text-white px-4 py-2 rounded">
+                                                Update
+                                            </Link>
+                                            <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleDelete(visa._id)}>
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
             </motion.div>
         </div>
     );
 };
+
 export default MyAddedVisas;
