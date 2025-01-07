@@ -39,7 +39,7 @@ const AllVisas = () => {
             <motion.div variants={fadeIn('up', 0.3)} initial="hidden" whileInView={'show'} viewport={{ once: false, amount: 0.4 }}>
                 <h1 className="text-brandPrimary text-4xl font-bold mb-6">All Visas</h1>
 
-                <div className='md:flex justify-between gap-8'>
+                <div className="md:flex justify-between gap-8">
                     <div className="mb-8 md:w-[360px]">
                         <label htmlFor="visaType" className="block text-base font-medium text-gray-700 dark:text-[#dddddd]">
                             Filter by Visa Type:
@@ -74,7 +74,7 @@ const AllVisas = () => {
                     {filteredVisas.map(visa => (
                         <div
                             key={visa._id}
-                            className="bg-brandLight rounded-2xl p-6 md:p-6 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral  dark:text-[#dddddd]">
+                            className="bg-brandLight rounded-lg p-4 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral  dark:text-[#dddddd]">
                             <img src={visa.countryImage} alt={visa.countryName} className="w-full h-48 object-cover rounded-lg mb-4" />
                             <h2 className="text-2xl font-semibold">{visa.countryName}</h2>
                             <p className="pt-2">

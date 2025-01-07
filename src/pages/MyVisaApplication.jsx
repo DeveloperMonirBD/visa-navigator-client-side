@@ -167,7 +167,7 @@ const MyVisaApplication = () => {
                                 <td>{`${application.firstName} ${application.lastName}`}</td>
                                 <td>{application.email}</td>
                                 <th>
-                                    <button className="bg-red-500 text-white btn rounded mt-4" onClick={() => handleCancel(application._id)}>
+                                    <button className="bg-red-500 text-white btn mt-4" onClick={() => handleCancel(application._id)}>
                                         Cancel
                                     </button>
                                 </th>

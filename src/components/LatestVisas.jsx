@@ -7,7 +7,7 @@ import { fadeIn } from '../variants';
 
 const LatestVisas = () => {
     const [latestVisas, setLatestVisas] = useState([]);
-    console.log(latestVisas)
+    console.log(latestVisas);
 
     useEffect(() => {
         const fetchLatestVisas = async () => {
@@ -31,7 +31,7 @@ const LatestVisas = () => {
                 {latestVisas.map(visa => (
                     <div
                         key={visa._id}
-                        className="bg-brandLight rounded-2xl p-4 lg:p-8 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral  dark:text-[#dddddd]">
+                        className="bg-brandLight rounded-lg p-4 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral  dark:text-[#dddddd]">
                         <img src={visa.countryImage} alt={visa.countryName} className="w-full h-48 lg:h-56 object-cover rounded-lg mb-4" />
                         <h2 className="text-2xl font-semibold mb-3">{visa.countryName}</h2>
                         <p className="pt-1">
