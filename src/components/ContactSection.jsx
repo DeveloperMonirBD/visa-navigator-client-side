@@ -2,7 +2,6 @@ import Lottie from 'lottie-react';
 import contactLottieData from '../assets/Animation - 1736176462106.json';
 
 const ContactSection = () => {
-    
     return (
         <div id="contact" className="contact py-16 border-t dark:border-none bg-white dark:bg-gray-600">
             <div className="container mx-auto px-6">

@@ -125,11 +125,65 @@ const MyVisaApplication = () => {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+            {/* Table start */}
+            <div className="overflow-x-auto">
+                <table className="table">
+                    <thead>
+                        <tr className="font-extrabold bg-brandPrimary text-white rounded-md">
+                            <th>Sl. No</th>
+                            <th>Country</th>
+                            <th>Processing Time</th>
+                            <th>Fee</th>
+                            <th>Validity</th>
+                            <th>Application Method</th>
+                            <th>Applied Date</th>
+                            <th>Applicant's Name</th>
+                            <th>Applicant's Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {filteredApplications.map((application, index) => (
+                            <tr key={application._id}>
+                                <th>{index + 1}</th>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle h-12 w-12">
+                                                <img src={application.countryImage} alt={application.countryName} />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{application.countryName}</div>
+                                            <div className="text-sm opacity-50">{application.visaType}</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{application.processingTime}</td>
+                                <td>${application.fee} USD</td>
+                                <td>{application.validity}</td>
+                                <td>{application.applicationMethod}</td>
+                                <td>{application.appliedDate}</td>
+                                <td>{`${application.firstName} ${application.lastName}`}</td>
+                                <td>{application.email}</td>
+                                <th>
+                                    <button className="bg-red-500 text-white btn rounded mt-4" onClick={() => handleCancel(application._id)}>
+                                        Cancel
+                                    </button>
+                                </th>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
+            {/* card start  */}
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
                 {filteredApplications.map(application => (
                     <div
                         key={application._id}
                         className="bg-white rounded-2xl p-6 lg:p-8 space-y-1 transform transition-all hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl duration-300 dark:bg-neutral  dark:text-[#dddddd]">
+                        
                         <img src={application.countryImage} alt={application.countryName} className="w-full h-48 lg:h-56 object-cover rounded-lg mb-4" />
                         <h2 className="text-2xl font-semibold mb-2">{application.countryName}</h2>
                         <p className="pt-2">
@@ -159,9 +213,10 @@ const MyVisaApplication = () => {
                         <button className="bg-red-500 text-white px-6 py-3 rounded mt-4" onClick={() => handleCancel(application._id)}>
                             Cancel
                         </button>
-                    </div>
+                    </div>                  
                 ))}
-            </div>
+            </div>  */}
+
         </motion.div>
     );
 };

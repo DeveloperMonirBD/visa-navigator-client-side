@@ -1,7 +1,11 @@
-import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
+
 
 const Map = () => {
-    return <div></div>;
+    return (
+        <div>
+            hello            
+        </div>
+    );
 };
 
 export default Map;

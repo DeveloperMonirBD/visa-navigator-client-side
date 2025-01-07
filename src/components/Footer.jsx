@@ -60,15 +60,16 @@ const Footer = () => {
                     <h6 className="text-2xl text-brandLight font-bold">Drop a Message</h6>
                     <fieldset className="form-control w-80">
                         <label className="label"></label>
-                        <div className=" space-y-4">
+                        <form action="https://api.web3forms.com/submit" method="POST" className=" space-y-4">
+                            <input type="hidden" name="access_key" value="affcf978-2dba-4c37-90b4-c96a6fc47a92" />
                             <div>
-                                <input type="text" placeholder="username@site.com" className="input input-bordered join-item w-full" />
+                                <input type="text" name="email" placeholder="username@site.com" className="input input-bordered join-item w-full" />
                             </div>
 
                             <button type="submit" className="btn text-lg bg-brandPrimary text-brandLight hover:text-gray-900 join-item w-full">
                                 Subscribe
                             </button>
-                        </div>
+                        </form>
                     </fieldset>
                 </form>
             </footer>
